@@ -1,0 +1,23 @@
+.menu-button {
+    font-size: 32px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    background-color: rgb(194, 217, 229);
+    margin-bottom: 25%;
+    transition-duration: 0.2s;
+    width: 230%;
+    height: 15%;
+    justify-content: flex-start;
+    align-items: stretch;
+    -unity-background-scale-mode: stretch-to-fill;
+    scale: 1 1;
+}
+
+.menu-button:hover {
+    background-color: rgb(209, 217, 221);
+    transition-duration: 0.4s;
+    rotate: 0;
+    scale: 1.2 1.2;
+    transition-delay: 0s;
+}
