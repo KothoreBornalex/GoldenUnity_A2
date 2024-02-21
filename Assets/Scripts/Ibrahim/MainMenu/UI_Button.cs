@@ -31,7 +31,8 @@ namespace Menu
 
         private void Button_clicked()
         {
-            Debug.Log("Button: " + _targetedButton + " is Working !");
+            //Debug.Log("Button: " + _targetedButton + " is Working !");
+            SoundManager.PlaySound(GameAssets.Instance.SoundBank._buttonFocus);
         }
 
     }
