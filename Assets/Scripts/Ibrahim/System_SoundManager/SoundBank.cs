@@ -12,13 +12,16 @@ public enum SoundType
 }
 
 [System.Serializable]
-public struct Sound
+public class Sound
 {
+    [SerializeField] private string _name;
     [SerializeField] private AudioClip _clip;
     [SerializeField] private SoundType _type;
-
+    [SerializeField] private bool _spammable = true;
+    public string Name { get => _name; set => _name = value; }
     public AudioClip Clip { get => _clip; set => _clip = value; }
     public SoundType Type { get => _type; set => _type = value; }
+    public bool Spammable { get => _spammable; set => _spammable = value; }
 }
 
 
