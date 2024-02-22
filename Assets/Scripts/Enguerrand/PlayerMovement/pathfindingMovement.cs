@@ -12,7 +12,6 @@ public class pathfindingMovement : MonoBehaviour
     [SerializeField, Range(.1f,5)] float _width;
     [SerializeField] int _currentIndex;
 
-
     private Vector3 _nextPos;
     private Vector2 _startPos;
     private Vector2 _dir;
