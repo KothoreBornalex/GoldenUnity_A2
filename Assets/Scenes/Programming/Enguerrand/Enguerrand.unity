@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188828302}
   - component: {fileID: 188828301}
+  - component: {fileID: 188828303}
   m_Layer: 0
   m_Name: GrandPa
   m_TagString: Untagged
@@ -207,6 +208,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188828303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188828300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14184718a38a1674a83aaa65ed334fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grandPa: {fileID: 188828300}
+  _speed: 5
 --- !u!1 &805694240
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,13 +359,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367291175}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de4e5923dbe57ee42b7733f550ce1377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 805694243}
-  _line: {fileID: 0}
+  _line: {fileID: 1367291177}
   _minDistance: 0.1
   _speed: 1
   _width: 0
