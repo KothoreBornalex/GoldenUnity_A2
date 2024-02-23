@@ -32,10 +32,15 @@ public class grandPaMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!_canMove)
+        if (_canMove)
         {
             foreach (Touch touch in Input.touches)
             {
+                if(touch.deltaPosition.magnitude > 0)
+                {
+
+                }
+
                 if (touch.phase == TouchPhase.Began)
                 {
                     _swipeUp = touch.position;
@@ -68,13 +73,15 @@ public class grandPaMovement : MonoBehaviour
         //check vertical swipe
         if (verticalSwipe() > _swipeThreshOld && verticalSwipe() > horizontalSwipe())
         {
+
             if (_swipeDown.y - _swipeUp.y > 0) //up swipe
             {
                 _dir = Direction.up;
 
                 //move upward
-                if (!_isAgainstTheWall && !_isAgainstTheWall)
+                if (!_isAgainstTheWall)
                 {
+                    //_grandMa.GetComponent<Rigidbody2D>().velocity = _swipe * _speed * Time.fixedDeltaTime;
                     _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _speed * Time.fixedDeltaTime);
                     _canMove = false;
                 }
@@ -85,7 +92,7 @@ public class grandPaMovement : MonoBehaviour
                 _dir = Direction.down;
 
                 //move downward
-                if (!_isAgainstTheWall && !_isAgainstTheWall)
+                if (!_isAgainstTheWall)
                 {
                     _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -_speed * Time.fixedDeltaTime);
                     _canMove = false;
@@ -101,7 +108,7 @@ public class grandPaMovement : MonoBehaviour
                 _dir = Direction.right;
 
                 //move rigth
-                if (!_isAgainstTheWall && !_isAgainstTheWall)
+                if (!_isAgainstTheWall)
                 {
                     _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(_speed * Time.fixedDeltaTime, 0);
                 }
@@ -111,7 +118,7 @@ public class grandPaMovement : MonoBehaviour
                 _dir = Direction.left;
 
                 //move left
-                if (!_isAgainstTheWall && !_isAgainstTheWall)
+                if (!_isAgainstTheWall)
                 {
                     _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed * Time.fixedDeltaTime, 0);
                 }
