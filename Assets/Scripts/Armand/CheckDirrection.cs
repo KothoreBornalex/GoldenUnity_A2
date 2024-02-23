@@ -18,35 +18,6 @@ public class CheckDirrection : MonoBehaviour
         }
     }
 
-    /*private void LookAround()
-    {
-        if (_lookRight)
-        {
-            transform.rotation = new Quaternion(0, 0, 0, 1);
-            Debug.Log("hello");
-            
-        }
-        StartCoroutine(InspectSuroundings(_waitingTime));
-        if (_lookLeft)
-        {
-            transform.rotation = new Quaternion(0, 0, 1, 0);
-            Debug.Log("hello2");
-        }
-        StartCoroutine(InspectSuroundings(_waitingTime));
-        if (_lookUp)
-        {
-            transform.rotation = new Quaternion(0, 0, 0.7071f, 0.7071f);
-            Debug.Log("hello3");
-        }
-        StartCoroutine(InspectSuroundings(_waitingTime));
-        if (_lookDown)
-        {
-            transform.rotation = new Quaternion(0, 0, -0.7071f, 0.7071f);
-            Debug.Log("hello4");
-        }
-        StartCoroutine(InspectSuroundings(_waitingTime));
-
-    }*/
     IEnumerator InspectSuroundings(float _waitngTime)
     {
         _isIspecting = true;
