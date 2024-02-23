@@ -1,8 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum PanelsConfiguration
+{
+    LevelsSelection = 0,
+    Settings = 1,
+    Credits = 2
+}
+
 
 public class MenuManager : MonoBehaviour
 {
@@ -19,13 +28,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Toggle _vignetteToggle;
     [SerializeField] private Toggle _bloomToggle;
 
-    [Header("Settings PlayerPrefs Keys")]
-    private string _keyBloom = "bloom";
-    private string _keyChromaticAberration = "chromaticAberration";
-    private string _keyVignette = "vignette";
-    private string _keyImageQuality = "imageQuality";
-    private string _keymusicVolume = "musicVolume";
-    private string _keyeffectVolume = "effectVolume";
 
     private void Start()
     {
@@ -35,37 +37,28 @@ public class MenuManager : MonoBehaviour
 
     private void InitializeSettingsInUI()
     {
-        if (PlayerPrefs.GetInt(_keyBloom) == 1) _bloomToggle.isOn = true;
-        else _bloomToggle.isOn = false;
-
-        if (PlayerPrefs.GetInt(_keyChromaticAberration) == 1) _chromaticAberrationToggle.isOn = true;
-        else _chromaticAberrationToggle.isOn = false;
-
-        if (PlayerPrefs.GetInt(_keyVignette) == 1) _vignetteToggle.isOn = true;
-        else _vignetteToggle.isOn = false;
+        _bloomToggle.isOn = SettingsManager.GetToggle(Settings.Bloom);
+        _chromaticAberrationToggle.isOn = SettingsManager.GetToggle(Settings.ChromaticAberration);
+        _vignetteToggle.isOn = SettingsManager.GetToggle(Settings.Vignette);
 
 
-        _imageQualitySlider.value = PlayerPrefs.GetFloat(_keyImageQuality);
-        _musicEffectSlider.value = PlayerPrefs.GetFloat(_keymusicVolume);
-        _soundEffectSlider.value = PlayerPrefs.GetFloat(_keyeffectVolume);
-
+        _imageQualitySlider.value = SettingsManager.GetFloat(Settings.ImageQuality);
+        _musicEffectSlider.value = SettingsManager.GetFloat(Settings.MusicVolume);
+        _soundEffectSlider.value = SettingsManager.GetFloat(Settings.EffectVolume);
     }
 
     private void FollowAllParameters()
     {
-
-
-
         _bloomToggle.onValueChanged.AddListener(delegate {
-            ToggleValueChanged(_bloomToggle, _keyBloom);
+            SettingsManager.SetToggle(_bloomToggle, Settings.Bloom);
         });
 
         _chromaticAberrationToggle.onValueChanged.AddListener(delegate {
-            ToggleValueChanged(_chromaticAberrationToggle, _keyChromaticAberration);
+            SettingsManager.SetToggle(_chromaticAberrationToggle, Settings.ChromaticAberration);
         });
 
         _vignetteToggle.onValueChanged.AddListener(delegate {
-            ToggleValueChanged(_vignetteToggle, _keyVignette);
+            SettingsManager.SetToggle(_vignetteToggle, Settings.Vignette);
         });
 
 
@@ -73,36 +66,57 @@ public class MenuManager : MonoBehaviour
 
 
         _imageQualitySlider.onValueChanged.AddListener(delegate {
-            SliderValueChanged(_imageQualitySlider, _keyImageQuality);
+            SettingsManager.SetFloat(_imageQualitySlider, Settings.ImageQuality);
         });
 
         _musicEffectSlider.onValueChanged.AddListener(delegate {
-            SliderValueChanged(_musicEffectSlider, _keymusicVolume);
+            SettingsManager.SetFloat(_musicEffectSlider, Settings.MusicVolume);
         });
 
         _soundEffectSlider.onValueChanged.AddListener(delegate {
-            SliderValueChanged(_soundEffectSlider, _keyeffectVolume);
+            SettingsManager.SetFloat(_soundEffectSlider, Settings.EffectVolume);
         });
     }
 
-    void ToggleValueChanged(Toggle change, string parameterName)
+
+    public void ActivatePanel(int value)
     {
-        if (change.isOn)
+        PanelsConfiguration config = (PanelsConfiguration)value;
+
+        switch (config)
         {
-            PlayerPrefs.SetInt(parameterName, 1);
+            case PanelsConfiguration.LevelsSelection:
+                _levelSelectionPanel.SetActive(true);
+                _settingsPanel.SetActive(false);
+                _creditsPanel.SetActive(false);
+                break;
+            case PanelsConfiguration.Settings:
+                _settingsPanel.SetActive(true);
+                _levelSelectionPanel.SetActive(false);
+                _creditsPanel.SetActive(false);
+                break;
+            case PanelsConfiguration.Credits:
+                _creditsPanel.SetActive(true);
+                _levelSelectionPanel.SetActive(false);
+                _settingsPanel.SetActive(false);
+                break;
         }
-        else
-        {
-            PlayerPrefs.SetInt(parameterName, 0);
-        }
+
+        PlayButtonSound();
     }
 
-    void SliderValueChanged(Slider change, string parameterName)
+
+
+    #region Utilities Functions
+    public void PlayButtonSound()
     {
-        PlayerPrefs.SetFloat(parameterName, change.value);
+        SoundManager.PlaySound(GameAssets.Instance.SoundBank._buttonFocus);
     }
 
-    public void SetBloomSettings()
+    public void LeaveTheGame()
     {
+        Application.Quit();
     }
+
+    #endregion
 }
