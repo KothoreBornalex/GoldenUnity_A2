@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class grandPaMovement : MonoBehaviour
 {
-    [SerializeField] GameObject _grandPa;
-    [SerializeField] LayerMask _obstacleMask;
+    [SerializeField] GameObject _grandMa;
     [SerializeField] float _speed;
     [SerializeField] float _swipeThreshOld = 20f;
 
     private Vector2 _swipeDown;
     private Vector2 _swipeUp;
 
-    private bool _canMove;
+    [SerializeField] bool _canMove = true;
     [SerializeField] bool _isAgainstTheWall = false;
     private bool _detectSwipeOnlyAfterRelease = false;
 
+    enum Direction
+    {
+        up,
+        down,
+        left,
+        right
+    };
+    Direction _dir;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +59,7 @@ public class grandPaMovement : MonoBehaviour
                     checkSwipe();
                 }
             }
+
         }
     }
 
@@ -62,35 +70,51 @@ public class grandPaMovement : MonoBehaviour
         {
             if (_swipeDown.y - _swipeUp.y > 0) //up swipe
             {
+                _dir = Direction.up;
+
                 //move upward
-                while (_isAgainstTheWall)
+                if (!_isAgainstTheWall && !_isAgainstTheWall)
                 {
-                    _grandPa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _speed * Time.fixedDeltaTime);
+                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _speed * Time.fixedDeltaTime);
+                    _canMove = false;
                 }
+                
             }
             else if (_swipeDown.y - _swipeUp.y < 0) //down swipe
             {
+                _dir = Direction.down;
+
                 //move downward
-                while (_isAgainstTheWall)
+                if (!_isAgainstTheWall && !_isAgainstTheWall)
                 {
-                    _grandPa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -_speed * Time.fixedDeltaTime);
+                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -_speed * Time.fixedDeltaTime);
+                    _canMove = false;
                 }
             }
-            Debug.Log(_isAgainstTheWall);
         }
 
         //Check horizontal swipe
         else if (verticalSwipe() > _swipeThreshOld && horizontalSwipe() > verticalSwipe())
         {
-            if (_swipeDown.x - _swipeUp.x > 0 && _isAgainstTheWall)//Right swipe
+            if (_swipeDown.x - _swipeUp.x > 0)//Right swipe
             {
+                _dir = Direction.right;
+
                 //move rigth
-                _grandPa.GetComponent<Rigidbody2D>().velocity = new Vector2(_speed * Time.fixedDeltaTime, 0);
+                if (!_isAgainstTheWall && !_isAgainstTheWall)
+                {
+                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(_speed * Time.fixedDeltaTime, 0);
+                }
             }
-            else if (_swipeDown.x - _swipeUp.x < 0 && _isAgainstTheWall)//Left swipe
+            else if (_swipeDown.x - _swipeUp.x < 0)//Left swipe
             {
+                _dir = Direction.left;
+
                 //move left
-                _grandPa.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed * Time.fixedDeltaTime, 0);
+                if (!_isAgainstTheWall && !_isAgainstTheWall)
+                {
+                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed * Time.fixedDeltaTime, 0);
+                }
             }
             _swipeUp = _swipeDown;
         }
@@ -105,11 +129,10 @@ public class grandPaMovement : MonoBehaviour
         return Mathf.Abs(_swipeDown.x - _swipeUp.x);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision = _obstacleMask)
-        {
-            _isAgainstTheWall = true;
-        }
+        _isAgainstTheWall = true;
+        _canMove = true;
     }
+
 }
