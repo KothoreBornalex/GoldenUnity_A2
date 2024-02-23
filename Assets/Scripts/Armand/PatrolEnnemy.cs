@@ -134,7 +134,7 @@ public class PatrolEnnemy : MonoBehaviour
         if (_directionY == 1f && _directionX == 0f)
         {
             transform.rotation = new Quaternion(0, 0, 0.7071f, 0.7071f);
-            Debug.Log("hello");
+            
         }
         else if ( _directionY == -1f && _directionX == 0f)
         {
