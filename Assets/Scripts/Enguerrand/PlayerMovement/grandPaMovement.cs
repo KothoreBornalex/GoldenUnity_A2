@@ -5,12 +5,16 @@ using UnityEngine;
 public class grandPaMovement : MonoBehaviour
 {
     [SerializeField] GameObject _grandPa;
+    [SerializeField] LayerMask _obstacleMask;
     [SerializeField] float _speed;
+    [SerializeField] float _swipeThreshOld = 20f;
 
-    private Vector2 _startPos;
-    private Vector2 _endPos;
+    private Vector2 _swipeDown;
+    private Vector2 _swipeUp;
 
     private bool _canMove;
+    [SerializeField] bool _isAgainstTheWall = false;
+    private bool _detectSwipeOnlyAfterRelease = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,37 +23,93 @@ public class grandPaMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!_canMove)
         {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            foreach (Touch touch in Input.touches)
             {
-                _startPos = Input.GetTouch(0).position;
-            }
-
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                _endPos = Input.GetTouch(0).position;
-                if (_endPos.x < _startPos.x)
+                if (touch.phase == TouchPhase.Began)
                 {
-                    grandPaMoveDirLeft();
+                    _swipeUp = touch.position;
+                    _swipeDown = touch.position;
                 }
 
-                if (_endPos.x > _startPos.x)
+                //Detects Swipe while finger is still moving
+                if (touch.phase == TouchPhase.Moved)
                 {
-                    grandPaMoveDirRigth();
+                    if (!_detectSwipeOnlyAfterRelease)
+                    {
+                        _swipeDown = touch.position;
+                        checkSwipe();
+                    }
+                }
+
+                //Detects swipe after finger is released
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    _swipeDown = touch.position;
+                    checkSwipe();
                 }
             }
         }
     }
 
-    void grandPaMoveDirLeft()
+    void checkSwipe()
     {
-        _grandPa.transform.position = new Vector2(_grandPa.transform.position.x +1, _grandPa.transform.position.y);
+        //check vertical swipe
+        if (verticalSwipe() > _swipeThreshOld && verticalSwipe() > horizontalSwipe())
+        {
+            if (_swipeDown.y - _swipeUp.y > 0) //up swipe
+            {
+                //move upward
+                while (_isAgainstTheWall)
+                {
+                    _grandPa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _speed * Time.fixedDeltaTime);
+                }
+            }
+            else if (_swipeDown.y - _swipeUp.y < 0) //down swipe
+            {
+                //move downward
+                while (_isAgainstTheWall)
+                {
+                    _grandPa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -_speed * Time.fixedDeltaTime);
+                }
+            }
+            Debug.Log(_isAgainstTheWall);
+        }
+
+        //Check horizontal swipe
+        else if (verticalSwipe() > _swipeThreshOld && horizontalSwipe() > verticalSwipe())
+        {
+            if (_swipeDown.x - _swipeUp.x > 0 && _isAgainstTheWall)//Right swipe
+            {
+                //move rigth
+                _grandPa.GetComponent<Rigidbody2D>().velocity = new Vector2(_speed * Time.fixedDeltaTime, 0);
+            }
+            else if (_swipeDown.x - _swipeUp.x < 0 && _isAgainstTheWall)//Left swipe
+            {
+                //move left
+                _grandPa.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed * Time.fixedDeltaTime, 0);
+            }
+            _swipeUp = _swipeDown;
+        }
     }
-    void grandPaMoveDirRigth()
+
+    float verticalSwipe()
     {
-        _grandPa.transform.position = new Vector2(_grandPa.transform.position.x - 1, _grandPa.transform.position.y);
+        return Mathf.Abs(_swipeDown.y - _swipeUp.y);
+    }
+    float horizontalSwipe()
+    {
+        return Mathf.Abs(_swipeDown.x - _swipeUp.x);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision = _obstacleMask)
+        {
+            _isAgainstTheWall = true;
+        }
     }
 }

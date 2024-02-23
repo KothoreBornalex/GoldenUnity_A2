@@ -16,7 +16,7 @@ public class pathfindingMovement : MonoBehaviour
     private Vector2 _startPos;
     private Vector2 _dir;
 
-    public bool _dirChosen;
+    //public bool _dirChosen;
     public bool _canMove;
 
     private void Start()
@@ -25,8 +25,6 @@ public class pathfindingMovement : MonoBehaviour
         _line.positionCount = 1;
         _nextPos = transform.position;
         _line.startWidth = _line.endWidth = _width;
-
-        //_line.posi
     }
 
     private void Update()
