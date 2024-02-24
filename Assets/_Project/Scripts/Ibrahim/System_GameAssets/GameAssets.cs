@@ -6,15 +6,17 @@ using UnityEngine.Rendering.Universal;
 
 public class GameAssets : MonoBehaviour
 {
-    private static GameAssets _instance;
+    public static GameAssets instance;
 
-    public static GameAssets Instance
+    private void Awake()
     {
-        get
+        if (instance == null)
         {
-            if(_instance == null) _instance = (Instantiate(Resources.Load("GameAssets")) as GameObject).GetComponent<GameAssets>();
-
-            return _instance;
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
         }
     }
 
@@ -30,4 +32,8 @@ public class GameAssets : MonoBehaviour
 
     #endregion
 
+    public void Initialized()
+    {
+
+    }
 }

@@ -18,7 +18,12 @@ public static class SettingsManager
 {
     public static void InitializeAllSettings()
     {
-
+        SetRenderScale(GetFloat(Settings.ImageQuality));
+        SetMusicVolume(GetFloat(Settings.MusicVolume));
+        SetEffectVolume(GetFloat(Settings.EffectVolume));
+        SetBloom(GetToggle(Settings.Bloom));
+        SetChromaticAberration(GetToggle(Settings.ChromaticAberration));
+        SetVignette(GetToggle(Settings.Vignette));
     }
 
     #region Set & Get Settings
@@ -82,7 +87,7 @@ public static class SettingsManager
     #region Apply Settings
     private static void SetRenderScale(float value)
     {
-        GameAssets.Instance.RenderPipelineAsset.renderScale = value;
+        GameAssets.instance.RenderPipelineAsset.renderScale = value;
     }
 
     private static void SetMusicVolume(float value)

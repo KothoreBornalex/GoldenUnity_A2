@@ -33,6 +33,10 @@ public class MenuManager : MonoBehaviour
     {
         InitializeSettingsInUI();
         FollowAllParameters();
+
+        GetComponent<Canvas>().worldCamera = Camera.main;
+
+        //LevelManager.instance.LoadSceneWithLoadingScreen(LevelManager.instance.LevelOneScene, true, LevelManager.instance.MainMenuScene);
     }
 
     private void InitializeSettingsInUI()
@@ -110,7 +114,12 @@ public class MenuManager : MonoBehaviour
     #region Utilities Functions
     public void PlayButtonSound()
     {
-        SoundManager.PlaySound(GameAssets.Instance.SoundBank._buttonFocus);
+        SoundManager.PlaySound(GameAssets.instance.SoundBank._buttonFocus);
+    }
+
+    public void StartLevel(int value)
+    {
+        LevelManager.instance.LoadSceneWithLoadingScreen(value , true, LevelManager.instance.CurrentScene);
     }
 
     public void LeaveTheGame()

@@ -18,7 +18,7 @@ public class testclass : MonoBehaviour
 
         if(timer >= 3.0f)
         {
-            SoundManager.PlaySoundAtPosition(GameAssets.Instance.SoundBank._buttonFocus, transform.position);
+            SoundManager.PlaySoundAtPosition(GameAssets.instance.SoundBank._buttonFocus, transform.position);
             timer = 0;
         }
     }

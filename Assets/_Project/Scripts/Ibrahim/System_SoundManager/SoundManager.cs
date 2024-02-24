@@ -7,6 +7,8 @@ public static class SoundManager
 {
     public static Dictionary<string, float> soundTimerDictionary = new Dictionary<string, float>();
 
+    private static AudioSource _currentMusic;
+    private static AudioSource _nextMusic;
 
     private static float _musicVolume;
     private static float _effectVolume;
