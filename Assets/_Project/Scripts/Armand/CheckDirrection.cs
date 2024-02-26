@@ -29,7 +29,7 @@ public class CheckDirrection : MonoBehaviour
         if (_lookRight)
         {
             transform.rotation = new Quaternion(0, 0, 0, 1);
-            Debug.Log("hello");
+            //Debug.Log("hello");
             yield return new WaitForSeconds(_waitingTime);
         }
         
@@ -37,14 +37,14 @@ public class CheckDirrection : MonoBehaviour
         if (_lookUp)
         {
             transform.rotation = new Quaternion(0, 0, 0.7071f, 0.7071f);
-            Debug.Log("hello3");
+            //Debug.Log("hello3");
             yield return new WaitForSeconds(_waitingTime);
         }
 
         if (_lookLeft)
         {
             transform.rotation = new Quaternion(0, 0, 1, 0);
-            Debug.Log("hello2");
+            //Debug.Log("hello2");
             yield return new WaitForSeconds(_waitingTime);
         }
         
@@ -52,7 +52,7 @@ public class CheckDirrection : MonoBehaviour
         if (_lookDown)
         {
             transform.rotation = new Quaternion(0, 0, -0.7071f, 0.7071f);
-            Debug.Log("hello4");
+            //Debug.Log("hello4");
             yield return new WaitForSeconds(_waitingTime);
         }
         _isIspecting = false;

@@ -10,8 +10,7 @@ public class SpotPlayer : MonoBehaviour
     [SerializeField] float _viewRadius;
     private GameObject _player1;
     private GameObject _player2;
-    private bool _hasLineOfSight1;
-    private bool _hasLineOfSight2;
+    private bool _hasLineOfSight = false;
 
     private void Start()
     {
@@ -33,13 +32,34 @@ public class SpotPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, -_viewAngle / 2) * transform.up * _viewRadius, Color.blue);
-        Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, _viewAngle / 2) * transform.up * _viewRadius , Color.blue);
-        RaycastHit2D _lineOfSight1 = Physics2D.Raycast(transform.position, _player1.transform.position - transform.position);
-        RaycastHit2D _lineOfSight2 = Physics2D.Raycast(transform.position, _player2.transform.position - transform.position);
-        if (_lineOfSight1.collider != null || _lineOfSight2.collider != null)
+        for(int i=0; i < _viewAngle; i++)
         {
-            _hasLineOfSight1 = _lineOfSight1.collider.CompareTag("Player1");
+            RaycastHit2D _lineOfSight = Physics2D.Raycast(transform.position, Quaternion.Euler(0f, 0f, -_viewAngle / 2 + i) * transform.up * _viewRadius);
+            
+            Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, -_viewAngle / 2 +i) * transform.up * _viewRadius, Color.blue);
+            if(_lineOfSight.collider != null)
+            {
+                _hasLineOfSight = _lineOfSight.collider.CompareTag("Player1");
+                if (_hasLineOfSight)
+                {
+                    _viewCone.color = Color.blue;
+                }
+                else
+                {
+                    _viewCone.color = Color.red;
+                }
+            }
+            
+        }
+        
+
+        //Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, -_viewAngle / 2) * transform.up * _viewRadius, Color.blue);
+        //Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, _viewAngle / 2) * transform.up * _viewRadius , Color.blue);
+        /*RaycastHit2D _lineOfSight = Physics2D.Raycast(transform.position, _player1.transform.position - transform.position);
+        RaycastHit2D _lineOfSight2 = Physics2D.Raycast(transform.position, _player2.transform.position - transform.position);
+        if (_lineOfSight.collider != null || _lineOfSight2.collider != null)
+        {
+            _hasLineOfSight1 = _lineOfSight.collider.CompareTag("Player1");
             _hasLineOfSight2 = _lineOfSight2.collider.CompareTag("Player2");
             if (_hasLineOfSight1)
             {
@@ -57,7 +77,7 @@ public class SpotPlayer : MonoBehaviour
             {
                 Debug.DrawRay(transform.position, _player2.transform.position - transform.position, Color.red);
             }
-        }
+        }*/
     }
 
 
