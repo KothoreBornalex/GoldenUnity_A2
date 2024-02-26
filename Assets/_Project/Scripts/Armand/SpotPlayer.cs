@@ -36,19 +36,17 @@ public class SpotPlayer : MonoBehaviour
         {
             RaycastHit2D _lineOfSight = Physics2D.Raycast(transform.position, Quaternion.Euler(0f, 0f, -_viewAngle / 2 + i) * transform.up * _viewRadius, _viewRadius);
 
-            Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, -_viewAngle / 2 +i) * transform.up * _viewRadius, Color.blue);
+            //Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, -_viewAngle / 2 +i) * transform.up * _viewRadius, Color.blue);
+            
             if (_lineOfSight.collider != null)
             {
                 _hasLineOfSight = _lineOfSight.collider.CompareTag("Player1");
-                if (!_hasLineOfSight)
+                
+                if (_hasLineOfSight)
                 {
-                    _viewCone.color = Color.red;
+                    Time.timeScale = 0;
                 }
-                else
-                {
-                    _viewCone.color = Color.blue;
-                   
-                }
+                
             }
             
         }
