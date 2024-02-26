@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class CheckDirrection : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class CheckDirrection : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        //Quaternion.AngleAxis(20f, Vector3.forward) * Vector2.right
+    }
     IEnumerator InspectSuroundings(float _waitngTime)
     {
         _isIspecting = true;
