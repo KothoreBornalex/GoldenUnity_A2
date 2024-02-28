@@ -11,6 +11,9 @@ public class SpotPlayer : MonoBehaviour
     private GameObject _player1;
     private GameObject _player2;
     private bool _hasLineOfSight = false;
+    private float _rotationAngle;
+    private float _incrementAngle;
+    [SerializeField] float _rotationSpeed;
 
     private void Start()
     {
@@ -23,14 +26,25 @@ public class SpotPlayer : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        
-        
-       
+        _rotationAngle = Mathf.PingPong(_incrementAngle, _viewAngle);
+        _incrementAngle += Time.deltaTime * _rotationSpeed;
+        RaycastHit2D _lineOfSight = Physics2D.Raycast(transform.position, Quaternion.Euler(0f, 0f, (-_viewAngle / 2) + _rotationAngle) * transform.up * _viewRadius, _viewRadius);
+        Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, (-_viewAngle / 2) + _rotationAngle ) * transform.up * _viewRadius, Color.blue);
+        if (_lineOfSight.collider != null)
+        {
+            _hasLineOfSight = _lineOfSight.collider.CompareTag("Player1");
+
+            if (_hasLineOfSight)
+            {
+                Time.timeScale = 0;
+            }
+
+        }
     }
 
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
         for(int i=0; i < _viewAngle; i++)
         {
@@ -52,32 +66,8 @@ public class SpotPlayer : MonoBehaviour
         }
         
 
-        //Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, -_viewAngle / 2) * transform.up * _viewRadius, Color.blue);
-        //Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, _viewAngle / 2) * transform.up * _viewRadius , Color.blue);
-        /*RaycastHit2D _lineOfSight = Physics2D.Raycast(transform.position, _player1.transform.position - transform.position);
-        RaycastHit2D _lineOfSight2 = Physics2D.Raycast(transform.position, _player2.transform.position - transform.position);
-        if (_lineOfSight.collider != null || _lineOfSight2.collider != null)
-        {
-            _hasLineOfSight1 = _lineOfSight.collider.CompareTag("Player1");
-            _hasLineOfSight2 = _lineOfSight2.collider.CompareTag("Player2");
-            if (_hasLineOfSight1)
-            {
-                Debug.DrawRay(transform.position, _player1.transform.position - transform.position, Color.green);
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, _player1.transform.position - transform.position, Color.red);
-            }
-            if (_hasLineOfSight2)
-            {
-                Debug.DrawRay(transform.position, _player2.transform.position - transform.position, Color.green);
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, _player2.transform.position - transform.position, Color.red);
-            }
-        }*/
-    }
+        
+    }*/
 
 
 }
