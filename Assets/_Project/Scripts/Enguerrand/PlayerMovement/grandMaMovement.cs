@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class grandPaMovement : MonoBehaviour
+public class grandMaMovement : MonoBehaviour
 {
     [SerializeField] GameObject _grandMa;
     [SerializeField] float _speed;
@@ -11,7 +11,7 @@ public class grandPaMovement : MonoBehaviour
     private Vector2 _swipeDown;
     private Vector2 _swipeUp;
 
-    [SerializeField] bool _canMove = true;
+    [SerializeField] bool _isMoving = false;
     [SerializeField] bool _isAgainstTheWall = false;
     private bool _detectSwipeOnlyAfterRelease = false;
 
@@ -23,16 +23,15 @@ public class grandPaMovement : MonoBehaviour
         right
     };
     Direction _dir;
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if (_canMove)
+        if (!_isMoving)
         {
             foreach (Touch touch in Input.touches)
             {
@@ -83,7 +82,7 @@ public class grandPaMovement : MonoBehaviour
                 {
                     //_grandMa.GetComponent<Rigidbody2D>().velocity = _swipe * _speed * Time.fixedDeltaTime;
                     _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _speed * Time.fixedDeltaTime);
-                    _canMove = false;
+                    _isMoving = true;
                 }
                 
             }
@@ -95,7 +94,7 @@ public class grandPaMovement : MonoBehaviour
                 if (!_isAgainstTheWall)
                 {
                     _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -_speed * Time.fixedDeltaTime);
-                    _canMove = false;
+                    _isMoving = true;
                 }
             }
         }
@@ -111,6 +110,7 @@ public class grandPaMovement : MonoBehaviour
                 if (!_isAgainstTheWall)
                 {
                     _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(_speed * Time.fixedDeltaTime, 0);
+                    _isMoving = true;
                 }
             }
             else if (_swipeDown.x - _swipeUp.x < 0)//Left swipe
@@ -121,6 +121,7 @@ public class grandPaMovement : MonoBehaviour
                 if (!_isAgainstTheWall)
                 {
                     _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed * Time.fixedDeltaTime, 0);
+                    _isMoving = true;
                 }
             }
             _swipeUp = _swipeDown;
@@ -139,7 +140,7 @@ public class grandPaMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _isAgainstTheWall = true;
-        _canMove = true;
+        _isMoving = false;
     }
 
 }
