@@ -26,7 +26,7 @@ public class SpotPlayer : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _rotationAngle = Mathf.PingPong(_incrementAngle, _viewAngle);
         _incrementAngle += Time.deltaTime * _rotationSpeed;
