@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class grandMaMovement : MonoBehaviour
 {
-    [SerializeField] GameObject _grandMa;
+    [SerializeField] Rigidbody2D _rb;
     [SerializeField] float _speed;
     [SerializeField] float _swipeThreshOld = 20f;
 
@@ -84,8 +84,7 @@ public class grandMaMovement : MonoBehaviour
                 //move upward
                 if (!_isMoving && !_UpWallDetection)
                 {
-                    //_grandMa.GetComponent<Rigidbody2D>().velocity = _swipe * _speed * Time.fixedDeltaTime;
-                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _speed * Time.fixedDeltaTime);
+                    _rb.velocity = new Vector2(0, _speed * Time.fixedDeltaTime);
                     _isMoving = true;
                 }
                 
@@ -97,7 +96,7 @@ public class grandMaMovement : MonoBehaviour
                 //move downward
                 if (!_isMoving && !_DownWallDetection)
                 {
-                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -_speed * Time.fixedDeltaTime);
+                    _rb.velocity = new Vector2(0, -_speed * Time.fixedDeltaTime);
                     _isMoving = true;
                 }
             }
@@ -113,7 +112,7 @@ public class grandMaMovement : MonoBehaviour
                 //move rigth
                 if (!_isMoving && !_RigthWallDetection)
                 {
-                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(_speed * Time.fixedDeltaTime, 0);
+                    _rb.velocity = new Vector2(_speed * Time.fixedDeltaTime, 0);
                     _isMoving = true;
                 }
             }
@@ -124,10 +123,10 @@ public class grandMaMovement : MonoBehaviour
                 //move left
                 if (!_isMoving && !_LeftWallDetection)
                 {
-                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed * Time.fixedDeltaTime, 0);
+                    _rb.velocity = new Vector2(-_speed * Time.fixedDeltaTime, 0);
                     _isMoving = true;
                 }
-                           }
+            }
             _swipeUp = _swipeDown;
         }
     }
@@ -144,7 +143,7 @@ public class grandMaMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //_grandMa.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        _grandMa.GetComponent<Rigidbody2D>().velocity -= _grandMa.GetComponent<Rigidbody2D>().velocity * .25f;
+        _rb.velocity -= _rb.velocity * .25f;
         _isAgainstTheWall = true;
         _isMoving = false;
     }
