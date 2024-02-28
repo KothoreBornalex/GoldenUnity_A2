@@ -28,22 +28,13 @@ public class grandMaMovement : MonoBehaviour
     };
     Direction _dir;
 
-    void Start()
-    {
-        
-    }
-
     void FixedUpdate()
     {
         if (!_isMoving)
         {
             foreach (Touch touch in Input.touches)
             {
-                if(touch.deltaPosition.magnitude > 0)
-                {
-
-                }
-
+                //Detects Touch Start on the screen
                 if (touch.phase == TouchPhase.Began)
                 {
                     _swipeUp = touch.position;
@@ -76,7 +67,6 @@ public class grandMaMovement : MonoBehaviour
         //check vertical swipe
         if (verticalSwipe() > _swipeThreshOld && verticalSwipe() > horizontalSwipe())
         {
-
             if (_swipeDown.y - _swipeUp.y > 0 && _dir != Direction.up) //up swipe
             {
                 _dir = Direction.up;
@@ -101,7 +91,6 @@ public class grandMaMovement : MonoBehaviour
                 }
             }
         }
-
         //Check horizontal swipe
         else if (verticalSwipe() > _swipeThreshOld && horizontalSwipe() > verticalSwipe())
         {
@@ -142,7 +131,6 @@ public class grandMaMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //_grandMa.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         _rb.velocity -= _rb.velocity * .25f;
         _isAgainstTheWall = true;
         _isMoving = false;
