@@ -14,8 +14,8 @@ public class SpotPlayer : MonoBehaviour
 
     private void Start()
     {
-        _player1 = GameObject.FindGameObjectWithTag("Player1");
-        _player2 = GameObject.FindGameObjectWithTag("Player2");
+        //_player1 = GameObject.FindGameObjectWithTag("Player1");
+        //_player2 = GameObject.FindGameObjectWithTag("Player2");
         _viewCone = GetComponent<Light2D>();
         _viewCone.pointLightOuterAngle = _viewAngle;
         _viewCone.pointLightInnerAngle = _viewAngle;
