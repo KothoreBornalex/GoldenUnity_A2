@@ -38,6 +38,7 @@ public class MenuManager : MonoBehaviour
     [Header("Menu Prefabs")]
     [SerializeField] private GameObject _selectionLevelPrefab;
 
+    public Canvas Canvas { get => _canvas; set => _canvas = value; }
 
     private void Awake()
     {
@@ -138,7 +139,7 @@ public class MenuManager : MonoBehaviour
     #region Utilities Functions
     public void ToggleMenu()
     {
-        _canvas.enabled = !_canvas.enabled;
+        GameManager.Instance.DesactivatePause();
     }
 
     public void PlayButtonSound()

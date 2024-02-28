@@ -11,19 +11,15 @@ public class LineRendererMovement : MonoBehaviour
     [SerializeField] private LayerMask _obstaclesLayerMask;
     [SerializeField] private Rigidbody2D _rb;
 
-
+    [Header("Global Fields")]
     private Camera _camera;
 
     [Header("Path Fields")]
     [SerializeField, Range(0.1f, 5.0f)] private float _minLengthForValidPath;
     [SerializeField, Range(0.1f, 5.0f)] private float _resetPathSpeed;
-    [SerializeField, ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
-    private Color _drawingPathColor;
-    [SerializeField, ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
-    private Color _errorPathColor;
-    [SerializeField, ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
-    private Color _acheivedPathColor;
-
+    [SerializeField, ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)] private Color _drawingPathColor;
+    [SerializeField, ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)] private Color _errorPathColor;
+    [SerializeField, ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)] private Color _acheivedPathColor;
     private bool _canDrawPath;
     private bool _isDrawing;
     public event Action<bool> ToggleClearPath;
@@ -56,6 +52,9 @@ public class LineRendererMovement : MonoBehaviour
         if (_playerManager != null) _playerManager.IsUnSelected += _playerManager_IsUnSelected;
     }
 
+
+
+
     private void OnDisable()
     {
         if (_playerManager != null) _playerManager.IsSelected -= _playerManager_IsSelected;
@@ -76,7 +75,8 @@ public class LineRendererMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        if(_playerManager.IsPaused) return;
+
 
         if(_isMoving)
         {
@@ -87,6 +87,9 @@ public class LineRendererMovement : MonoBehaviour
         }
         else if(!_isReadyToMove)
         {
+
+            Debug.Log("Is Ready to move false");
+
             if (_canDrawPath)
             {
                 if (Input.GetMouseButtonDown(0))
@@ -98,8 +101,11 @@ public class LineRendererMovement : MonoBehaviour
 
             if (_isDrawing)
             {
+                Debug.Log("End Line 1");
+
                 if (Input.GetMouseButtonUp(0))
                 {
+                    Debug.Log("End Line 2");
                     FinishLine();
                 }
             }
@@ -114,7 +120,7 @@ public class LineRendererMovement : MonoBehaviour
         {
             StopCoroutine(drawing);
         }
-
+        _canDrawPath = false;
         _isDrawing = true;
         SetLineColor(_drawingPathColor);
         drawing = StartCoroutine(DrawLine());
@@ -124,7 +130,7 @@ public class LineRendererMovement : MonoBehaviour
     {
         StopCoroutine(drawing);
         _isDrawing = false;
-
+        _canDrawPath = true;
         if (CheckPathLength())
         {
             if (CheckPathForCollisions())
@@ -252,6 +258,7 @@ public class LineRendererMovement : MonoBehaviour
             _isMoving = false;
             InverseVertsOrder();
             StartCoroutine(DeletePath());
+            
         }
         else
         {

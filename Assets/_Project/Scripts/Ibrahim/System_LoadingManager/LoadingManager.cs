@@ -61,6 +61,11 @@ public class LoadingManager : MonoBehaviour
         _currentScene = sceneName;
     }
 
+    public void LoadSceneWithoutLoadingScreenWithoutNotify(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
+
     private string GetSceneName(int sceneID)
     {
         foreach (GameLevel sceneData in GameAssets.instance.GameLevelsBank.GameLevels)
