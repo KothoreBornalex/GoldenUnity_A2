@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -36,11 +38,19 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Events")]
-    [SerializeField] private UnityEvent _onGameEnd;
-    [SerializeField] private UnityEvent _onVictory;
-    [SerializeField] private UnityEvent _onDefeat;
+    [SerializeField] private UnityEvent OnGameEndUnityEvent;
+    [SerializeField] private UnityEvent OnVictoryUnityEvent;
+    [SerializeField] private UnityEvent OnDefeatUnityEvent;
+    public event Action OnGameEnd;
+
 
     public List<Objective> Objectives { get => _objectives; set => _objectives = value; }
+
+    public event Action OnPaused;
+    public event Action OnUnPaused;
+
+    [SerializeField] private UnityEvent OnPausedUnityEvent;
+    [SerializeField] private UnityEvent OnUnPausedUnityEvent;
 
 
     // Start is called before the first frame update
@@ -54,7 +64,7 @@ public class GameManager : MonoBehaviour
     private void AddPauseMenu()
     {
         Debug.Log("Add Pause Menu To Scene");
-        LoadingManager.instance.LoadSceneWithoutLoadingScreen(GameAssets.instance.GameLevelsBank.PauseMenu.SceneName);
+        LoadingManager.instance.LoadSceneWithoutLoadingScreenWithoutNotify(GameAssets.instance.GameLevelsBank.PauseMenu.SceneName);
     }
 
 
@@ -62,17 +72,18 @@ public class GameManager : MonoBehaviour
     public void EndGame(bool victory)
     {
         _endGameCanvas.gameObject.SetActive(true);
-        _onGameEnd?.Invoke();
+        OnGameEnd?.Invoke();
+        OnGameEndUnityEvent?.Invoke();
 
         if (victory)
         {
             _panelVictory.SetActive(true);
-            _onVictory?.Invoke();
+            OnVictoryUnityEvent?.Invoke();
         }
         else
         {
             _panelDefeat.SetActive(true);
-            _onDefeat?.Invoke();
+            OnDefeatUnityEvent?.Invoke();
         }
 
         StartCoroutine(LoadConvas());
@@ -88,19 +99,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void TogglePause()
+    public void ActivatePause()
     {
-        if (_gameIsPaused)
-        {
-            MenuManager.Instance.ToggleMenu();
-            _gameIsPaused = false;
-        }
-        else
-        {
-            MenuManager.Instance.ToggleMenu();
-            _gameIsPaused = true;
-        }
+        MenuManager.Instance.Canvas.enabled = !MenuManager.Instance.Canvas.enabled;
 
+        OnPaused?.Invoke();
+        OnPausedUnityEvent?.Invoke();
+
+        _gameIsPaused = true;
+
+    }
+
+    public void DesactivatePause()
+    {
+        MenuManager.Instance.Canvas.enabled = !MenuManager.Instance.Canvas.enabled;
+        OnUnPaused?.Invoke();
+        OnUnPausedUnityEvent?.Invoke();
+
+        _gameIsPaused = false;
+       
     }
 
     public void Retry()

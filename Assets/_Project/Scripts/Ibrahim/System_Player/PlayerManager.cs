@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private bool _debugSelectionCircleRadius;
 
     private bool _isSelected;
+    private bool _isPaused;
 
     public event Action IsSelected;
     public event Action IsUnSelected;
@@ -23,11 +24,45 @@ public class PlayerManager : MonoBehaviour
     private Vector3 startInputPos;
     private Vector3 endInputPos;
     float timeSinceSelected;
+
+    public bool IsPaused { get => _isPaused;}
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         _camera = Camera.main;
     }
+
+
+
+
+    void OnEnable()
+    {
+        if (GameManager.Instance != null) GameManager.Instance.OnPaused += Instance_OnPaused;
+        if (GameManager.Instance != null) GameManager.Instance.OnUnPaused += Instance_OnUnPaused;
+    }
+
+    private void OnDisable()
+    {
+        if (GameManager.Instance != null) GameManager.Instance.OnPaused -= Instance_OnPaused;
+        if (GameManager.Instance != null) GameManager.Instance.OnUnPaused -= Instance_OnUnPaused;
+    }
+
+
+    private void Instance_OnUnPaused()
+    {
+        Debug.Log("Un Paused");
+        _isPaused = false;
+    }
+
+    private void Instance_OnPaused()
+    {
+        _isPaused = true;
+    }
+
+
 
     // Update is called once per frame
     void Update()
