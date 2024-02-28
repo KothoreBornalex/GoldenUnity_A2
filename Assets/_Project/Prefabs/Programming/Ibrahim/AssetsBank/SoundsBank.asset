@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ae9dce7f3701b4f85afab0f2db9d15, type: 3}
   m_Name: SoundsBank
   m_EditorClassIdentifier: 
+  _mainMenuMusic:
+    _name: MainMenuMusic
+    _clip: {fileID: 8300000, guid: 534c416e2bc2aae48a529de36a4b9df2, type: 3}
+    _type: 1
+    _spammable: 0
+  _levelOneMusic:
+    _name: LevelOneMusic
+    _clip: {fileID: 8300000, guid: 98a8f265ed816614ebd2083ef4ebd58a, type: 3}
+    _type: 1
+    _spammable: 0
   _buttonFocus:
     _name: ButtonFocus
     _clip: {fileID: 8300000, guid: f5c9c58a6c7aa3f4fb3020d5f98f2805, type: 3}

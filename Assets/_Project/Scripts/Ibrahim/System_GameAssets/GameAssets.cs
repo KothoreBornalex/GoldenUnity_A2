@@ -22,6 +22,7 @@ public class GameAssets : MonoBehaviour
 
 
     [SerializeField] private SoundBank _soundBank;
+    [SerializeField] private GameLevelsBank _gameLevelsBank;
     [SerializeField] private UniversalRenderPipelineAsset _renderPipelineAsset;
     [SerializeField] private VolumeProfile _volumeProfile;
 
@@ -29,6 +30,7 @@ public class GameAssets : MonoBehaviour
     public SoundBank SoundBank { get => _soundBank; }
     public UniversalRenderPipelineAsset RenderPipelineAsset { get => _renderPipelineAsset; set => _renderPipelineAsset = value; }
     public VolumeProfile VolumeProfile { get => _volumeProfile; set => _volumeProfile = value; }
+    public GameLevelsBank GameLevelsBank { get => _gameLevelsBank; set => _gameLevelsBank = value; }
 
     #endregion
 

@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 1387752285249679567}
   - component: {fileID: 57677593030013079}
   - component: {fileID: 2126889580633156857}
+  - component: {fileID: -5159778862740113494}
   m_Layer: 5
   m_Name: CadreLevelButton
   m_TagString: Untagged
@@ -555,6 +556,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-5159778862740113494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513351768730402029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1654fd2bfbe9849b37ebc5c8bd9663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playButton: {fileID: 7654115530649079769}
+  _title: {fileID: 3181040030591987868}
+  _image: {fileID: 948041873328565495}
 --- !u!1 &7889949878515017644
 GameObject:
   m_ObjectHideFlags: 0

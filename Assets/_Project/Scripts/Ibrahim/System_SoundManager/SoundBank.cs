@@ -29,6 +29,11 @@ public class Sound
 [CreateAssetMenu(fileName = "SoundBank", menuName = "SoundBank", order = 1)]
 public class SoundBank : ScriptableObject
 {
+    [Header("Musics")]
+    [SerializeField] public Sound _mainMenuMusic;
+    [SerializeField] public Sound _levelOneMusic;
+
+
     [Header("UI Sounds")]
     [SerializeField] public Sound _buttonFocus;
 

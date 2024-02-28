@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class SoundManager
+public class SoundManager : MonoBehaviour
 {
     public static Dictionary<string, float> soundTimerDictionary = new Dictionary<string, float>();
 
@@ -16,30 +16,86 @@ public static class SoundManager
     public static float MusicVolume { get => _musicVolume; set => _musicVolume = value; }
     public static float EffectVolume { get => _effectVolume; set => _effectVolume = value; }
 
+    public static SoundManager Instance;
 
-
-    public static void PlaySound(Sound sound)
+    private void Awake()
     {
-        if (CanPlaySound(sound))
+        if(Instance == null)
         {
-            GameObject soundGameObject = new GameObject("Sound");
-            AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-
-            switch (sound.Type)
-            {
-                case SoundType.Music:
-                    audioSource.volume = _musicVolume;
-                    break;
-                case SoundType.Effect:
-                    audioSource.volume = _effectVolume;
-                    break;
-            }
-
-            audioSource.PlayOneShot(sound.Clip);
-
-            soundTimerDictionary[sound.Name] = Time.time;
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
         }
     }
+
+    public void PlaySound(Sound sound)
+    {
+        switch (sound.Type)
+        {
+            case SoundType.Music:
+                StartCoroutine(PlayMusic(sound));
+                break;
+
+            case SoundType.Effect:
+                if (CanPlaySound(sound))
+                {
+                    GameObject soundGameObject = new GameObject("Sound");
+                    AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+                    audioSource.volume = _effectVolume;
+
+                    audioSource.PlayOneShot(sound.Clip);
+
+                    soundTimerDictionary[sound.Name] = Time.time;
+                }
+                break;
+        }
+        
+    }
+
+    private static IEnumerator PlayMusic(Sound sound)
+    {
+        GameObject soundGameObject = new GameObject("Music");
+        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+        audioSource.clip = sound.Clip;
+        audioSource.loop = true;
+        audioSource.Play();
+        _nextMusic = audioSource;
+
+        if (_currentMusic)
+        {
+            _nextMusic.volume = 0;
+            bool currentMusicDone = false;
+            bool nextMusicDone = false;
+
+            while (!currentMusicDone || !nextMusicDone)
+            {
+                
+                _currentMusic.volume = Mathf.Lerp(_currentMusic.volume, 0, Time.deltaTime * 0.45f);
+                _nextMusic.volume = Mathf.Lerp(_nextMusic.volume, _musicVolume, Time.deltaTime * 0.3f);
+                
+                if(_currentMusic.volume == 0 && _nextMusic.volume == _musicVolume)
+                {
+                    currentMusicDone = true;
+                    nextMusicDone = true;
+                    _currentMusic = _nextMusic;
+                }
+
+                yield return null;
+            }
+
+        }
+        else
+        {
+            _currentMusic = _nextMusic;
+            _currentMusic.volume = _musicVolume;
+        }
+        
+
+        
+    }
+
 
     public static void PlaySoundAtPosition(Sound sound, Vector3 position)
     {

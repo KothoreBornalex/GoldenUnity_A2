@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,10 +15,17 @@ public enum PanelsConfiguration
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance;
+
+    [Header("Canvas Fields")]
+    [SerializeField] private Canvas _canvas;
+
+    [Header("Menu Panels")]
     [SerializeField] private GameObject _menu;
     [SerializeField] private GameObject _levelSelectionPanel;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _creditsPanel;
+    [SerializeField] private Transform _levelSelectionContentTransform;
 
     [Header("Settings Input")]
     [SerializeField] private Slider _imageQualitySlider;
@@ -28,6 +35,22 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Toggle _vignetteToggle;
     [SerializeField] private Toggle _bloomToggle;
 
+    [Header("Menu Prefabs")]
+    [SerializeField] private GameObject _selectionLevelPrefab;
+
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
 
     private void Start()
     {
@@ -35,6 +58,7 @@ public class MenuManager : MonoBehaviour
         FollowAllParameters();
 
         GetComponent<Canvas>().worldCamera = Camera.main;
+        InitializeLevelsSelection();
 
         //LevelManager.instance.LoadSceneWithLoadingScreen(LevelManager.instance.LevelOneScene, true, LevelManager.instance.MainMenuScene);
     }
@@ -112,14 +136,41 @@ public class MenuManager : MonoBehaviour
 
 
     #region Utilities Functions
-    public void PlayButtonSound()
+    public void ToggleMenu()
     {
-        SoundManager.PlaySound(GameAssets.instance.SoundBank._buttonFocus);
+        _canvas.enabled = !_canvas.enabled;
     }
 
-    public void StartLevel(int value)
+    public void PlayButtonSound()
     {
-        LevelManager.instance.LoadSceneWithLoadingScreen(value , true, LevelManager.instance.CurrentScene);
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._buttonFocus);
+    }
+
+    public void StartLevel(string sceneName)
+    {
+        LoadingManager.instance.LoadSceneWithLoadingScreen(sceneName, true, LoadingManager.instance.CurrentScene);
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._levelOneMusic);
+    }
+
+    public void InitializeLevelsSelection()
+    {
+        if(_levelSelectionPanel != null)
+        {
+            foreach(GameLevel gameLevel in GameAssets.instance.GameLevelsBank.GameLevels)
+            {
+                GameObject newSelection = Instantiate(_selectionLevelPrefab, _levelSelectionContentTransform);
+                LevelSelectionUI levelSelectionUI = newSelection.GetComponent<LevelSelectionUI>();
+
+                levelSelectionUI.Title.SetText(gameLevel.SceneName);
+                levelSelectionUI.Image.sprite = gameLevel.Illustration;
+
+                levelSelectionUI.PlayButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() => 
+                {
+                    StartLevel(gameLevel.SceneName);
+                }));
+
+            }
+        }
     }
 
     public void LeaveTheGame()
