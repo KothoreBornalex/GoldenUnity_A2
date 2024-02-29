@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class grandMaMovement : MonoBehaviour
 {
-    [SerializeField] GameObject _grandMa;
+    [SerializeField] Rigidbody2D _rb;
     [SerializeField] float _speed;
     [SerializeField] float _swipeThreshOld = 20f;
 
@@ -14,6 +14,10 @@ public class grandMaMovement : MonoBehaviour
     [SerializeField] bool _isMoving = false;
     [SerializeField] bool _isAgainstTheWall = false;
     private bool _detectSwipeOnlyAfterRelease = false;
+    private bool _LeftWallDetection = false;
+    private bool _RigthWallDetection = false;
+    private bool _UpWallDetection = false;
+    private bool _DownWallDetection = false;
 
     enum Direction
     {
@@ -24,22 +28,13 @@ public class grandMaMovement : MonoBehaviour
     };
     Direction _dir;
 
-    void Start()
-    {
-        
-    }
-
     void FixedUpdate()
     {
         if (!_isMoving)
         {
             foreach (Touch touch in Input.touches)
             {
-                if(touch.deltaPosition.magnitude > 0)
-                {
-
-                }
-
+                //Detects Touch Start on the screen
                 if (touch.phase == TouchPhase.Began)
                 {
                     _swipeUp = touch.position;
@@ -72,55 +67,52 @@ public class grandMaMovement : MonoBehaviour
         //check vertical swipe
         if (verticalSwipe() > _swipeThreshOld && verticalSwipe() > horizontalSwipe())
         {
-
-            if (_swipeDown.y - _swipeUp.y > 0) //up swipe
+            if (_swipeDown.y - _swipeUp.y > 0 && _dir != Direction.up) //up swipe
             {
                 _dir = Direction.up;
 
                 //move upward
-                if (!_isAgainstTheWall)
+                if (!_isMoving && !_UpWallDetection)
                 {
-                    //_grandMa.GetComponent<Rigidbody2D>().velocity = _swipe * _speed * Time.fixedDeltaTime;
-                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _speed * Time.fixedDeltaTime);
+                    _rb.velocity = new Vector2(0, _speed * Time.fixedDeltaTime);
                     _isMoving = true;
                 }
                 
             }
-            else if (_swipeDown.y - _swipeUp.y < 0) //down swipe
+            else if (_swipeDown.y - _swipeUp.y < 0 && _dir != Direction.down) //down swipe
             {
                 _dir = Direction.down;
 
                 //move downward
-                if (!_isAgainstTheWall)
+                if (!_isMoving && !_DownWallDetection)
                 {
-                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -_speed * Time.fixedDeltaTime);
+                    _rb.velocity = new Vector2(0, -_speed * Time.fixedDeltaTime);
                     _isMoving = true;
                 }
             }
         }
-
         //Check horizontal swipe
         else if (verticalSwipe() > _swipeThreshOld && horizontalSwipe() > verticalSwipe())
         {
-            if (_swipeDown.x - _swipeUp.x > 0)//Right swipe
+            if (_swipeDown.x - _swipeUp.x > 0 && _dir != Direction.right)//Right swipe
             {
                 _dir = Direction.right;
 
                 //move rigth
-                if (!_isAgainstTheWall)
+                if (!_isMoving && !_RigthWallDetection)
                 {
-                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(_speed * Time.fixedDeltaTime, 0);
+                    _rb.velocity = new Vector2(_speed * Time.fixedDeltaTime, 0);
                     _isMoving = true;
                 }
             }
-            else if (_swipeDown.x - _swipeUp.x < 0)//Left swipe
+            else if (_swipeDown.x - _swipeUp.x < 0 && _dir != Direction.left)//Left swipe
             {
                 _dir = Direction.left;
 
                 //move left
-                if (!_isAgainstTheWall)
+                if (!_isMoving && !_LeftWallDetection)
                 {
-                    _grandMa.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed * Time.fixedDeltaTime, 0);
+                    _rb.velocity = new Vector2(-_speed * Time.fixedDeltaTime, 0);
                     _isMoving = true;
                 }
             }
@@ -139,6 +131,7 @@ public class grandMaMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        _rb.velocity -= _rb.velocity * .25f;
         _isAgainstTheWall = true;
         _isMoving = false;
     }
