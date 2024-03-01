@@ -8,8 +8,8 @@ public class SpotPlayer : MonoBehaviour
     private Light2D _viewCone;
     [SerializeField] float _viewAngle;
     [SerializeField] float _viewRadius;
-    private GameObject _player1;
-    private GameObject _player2;
+    [SerializeField] private LayerMask _layersToCollideWith;
+
     private bool _hasLineOfSight = false;
     private float _rotationAngle;
     private float _incrementAngle;
@@ -30,17 +30,21 @@ public class SpotPlayer : MonoBehaviour
     {
         _rotationAngle = Mathf.PingPong(_incrementAngle, _viewAngle);
         _incrementAngle += Time.deltaTime * _rotationSpeed;
-        RaycastHit2D _lineOfSight = Physics2D.Raycast(transform.position, Quaternion.Euler(0f, 0f, (-_viewAngle / 2) + _rotationAngle) * transform.up * _viewRadius, _viewRadius);
-        Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, (-_viewAngle / 2) + _rotationAngle ) * transform.up * _viewRadius, Color.blue);
+
+        RaycastHit2D _lineOfSight = Physics2D.Raycast(transform.position, Quaternion.Euler(0f, 0f, (-_viewAngle / 2) + _rotationAngle) * transform.up * _viewRadius, _viewRadius, _layersToCollideWith);
         if (_lineOfSight.collider != null)
         {
-            _hasLineOfSight = _lineOfSight.collider.CompareTag("Player1");
 
-            if (_hasLineOfSight)
+            Debug.DrawLine(transform.position, _lineOfSight.point, Color.blue);
+
+            if (_lineOfSight.collider.CompareTag("Player"))
             {
-                Time.timeScale = 0;
+                GameManager.Instance.EndGame(false);
             }
-
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, Quaternion.Euler(0f, 0f, (-_viewAngle / 2) + _rotationAngle) * transform.up * _viewRadius, Color.blue);
         }
     }
 

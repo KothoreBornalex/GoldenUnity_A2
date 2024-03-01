@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -67,14 +68,24 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
+            if(EventSystem.current.currentSelectedGameObject != null)
+            {
+                if (EventSystem.current.currentSelectedGameObject.layer == LayerMask.NameToLayer("UI")) return;
+            }
+
             if (CheckClickIsInRadius())
             {
                 startInputPos = _camera.ScreenToWorldPoint(Input.mousePosition);
 
                 if (_isSelected) return;
                 SetSelected();
+            }
+            else
+            {
+                if(_isSelected) SetUnSelected();
             }
         }
 

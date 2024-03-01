@@ -73,22 +73,14 @@ public class LineRendererMovement : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(_playerManager.IsPaused) return;
+        if (_playerManager.IsPaused) return;
 
 
-        if(_isMoving)
-        {
-            if (_linePath.positionCount != 0)
-            {
-                UpdateMovements();
-            }
-        }
-        else if(!_isReadyToMove)
+        if (!_isMoving && !_isReadyToMove)
         {
 
-            Debug.Log("Is Ready to move false");
 
             if (_canDrawPath)
             {
@@ -101,7 +93,6 @@ public class LineRendererMovement : MonoBehaviour
 
             if (_isDrawing)
             {
-                Debug.Log("End Line 1");
 
                 if (Input.GetMouseButtonUp(0))
                 {
@@ -110,6 +101,21 @@ public class LineRendererMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if(_playerManager.IsPaused) return;
+
+
+        if(_isMoving)
+        {
+            if (_linePath.positionCount != 0)
+            {
+                UpdateMovements();
+            }
+        }
+        
     }
 
 

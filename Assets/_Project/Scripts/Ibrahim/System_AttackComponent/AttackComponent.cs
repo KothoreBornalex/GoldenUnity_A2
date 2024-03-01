@@ -8,9 +8,14 @@ public class AttackComponent : MonoBehaviour
 {
     [SerializeField] private CircleCollider2D _collider;
     [SerializeField] private LayerMask _enemyLayerMask;
+    private GameObject _enemy;
+    private bool _enemyDetected;
+
     public event Action OnAttacking;
     [SerializeField] private UnityEvent OnAttackingUnityEvent;
     [SerializeField] private UnityEvent OnFinishedAttackUnityEvent;
+
+    public bool EnemyDetected { get => _enemyDetected;}
 
     // Start is called before the first frame update
     void Start()
@@ -21,17 +26,25 @@ public class AttackComponent : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Contact");
+        _enemyDetected = true;
+        _enemy = collision.gameObject;
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _enemyDetected = false;
+    }
+
+
 
     public void Attack()
     {
         OnAttackingUnityEvent?.Invoke();
 
-
-
+        _enemy.GetComponent<Guard>().Eliminate();
 
         OnFinishedAttackUnityEvent?.Invoke();
     }

@@ -15,9 +15,17 @@ public class AttackComponentUI : MonoBehaviour
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (_attackComponent.EnemyDetected)
+        {
+            _buttonHideAttack.SetActive(false);
+        }
+        else
+        {
+            _buttonHideAttack.SetActive(true);
+        }
     }
 }
