@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     }
 
     [Header("Objectives")]
+    private bool _gameIsOnGoing;
     [SerializeField] private List<Objective> _objectives = new List<Objective>();
 
     // Game Fields
@@ -56,10 +57,20 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _gameIsOnGoing = true;
         _endGameCanvas.worldCamera = Camera.main;
         _pauseButtonCanvas.worldCamera= Camera.main;
         AddPauseMenu();
     }
+
+    private void Update()
+    {
+        if (AreAllObjectivesCompleted())
+        {
+            EndGame(true);
+        }
+    }
+
 
     private void AddPauseMenu()
     {
@@ -71,22 +82,28 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(bool victory)
     {
-        _endGameCanvas.gameObject.SetActive(true);
-        OnGameEnd?.Invoke();
-        OnGameEndUnityEvent?.Invoke();
-
-        if (victory)
+        if (_gameIsOnGoing)
         {
-            _panelVictory.SetActive(true);
-            OnVictoryUnityEvent?.Invoke();
-        }
-        else
-        {
-            _panelDefeat.SetActive(true);
-            OnDefeatUnityEvent?.Invoke();
-        }
+            _gameIsOnGoing = false;
+            _endGameCanvas.gameObject.SetActive(true);
+            OnGameEnd?.Invoke();
+            OnGameEndUnityEvent?.Invoke();
 
-        StartCoroutine(LoadConvas());
+            if (victory)
+            {
+                _panelVictory.SetActive(true);
+                OnVictoryUnityEvent?.Invoke();
+            }
+            else
+            {
+                _panelDefeat.SetActive(true);
+                OnDefeatUnityEvent?.Invoke();
+            }
+
+            PauseGameWithoutMenu();
+            StartCoroutine(LoadConvas());
+        }
+        
     }
 
     private IEnumerator LoadConvas()
@@ -97,6 +114,16 @@ public class GameManager : MonoBehaviour
             canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 1, Time.deltaTime);
             yield return null;
         }
+    }
+
+    public void PauseGameWithoutMenu()
+    {
+
+        OnPaused?.Invoke();
+        OnPausedUnityEvent?.Invoke();
+
+        _gameIsPaused = true;
+
     }
 
     public void ActivatePause()
