@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class grandMaMovement : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class grandMaMovement : MonoBehaviour
     private bool _RigthWallDetection = false;
     private bool _UpWallDetection = false;
     private bool _DownWallDetection = false;
+
+    [Header("Unity Events")]
+    [SerializeField] private UnityEvent OnCollision;
 
     enum Direction
     {
@@ -166,6 +170,7 @@ public class grandMaMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        OnCollision?.Invoke();
         _rb.position -= _rb.velocity * .35f;
         _rb.velocity = Vector3.zero;
         _isAgainstTheWall = true;

@@ -5,9 +5,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
+public enum PlayerType
+{
+    GrandPa,
+    GrandMa
+}
 public class PlayerManager : MonoBehaviour
 {
     private Camera _camera;
+    [Header("Player")]
+    [SerializeField] private PlayerType _playerType;
 
     [Header("Selection Fields")]
     [SerializeField, Range(0.1f, 2.0f)] private float _selectionCircleRadius = 1.0f;
@@ -27,6 +34,7 @@ public class PlayerManager : MonoBehaviour
     float timeSinceSelected;
 
     public bool IsPaused { get => _isPaused;}
+    public PlayerType PlayerType { get => _playerType;}
 
 
 

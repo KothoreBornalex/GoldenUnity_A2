@@ -638,10 +638,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 457148659126058760, guid: 75ece1d2e2a35ff4e98c37b4354d9c8d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 457148659126058760, guid: 75ece1d2e2a35ff4e98c37b4354d9c8d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 457148660078728593, guid: 75ece1d2e2a35ff4e98c37b4354d9c8d, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1329100508}
+    - target: {fileID: 457148660078728593, guid: 75ece1d2e2a35ff4e98c37b4354d9c8d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 457148660078728604, guid: 75ece1d2e2a35ff4e98c37b4354d9c8d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 457148660370454576, guid: 75ece1d2e2a35ff4e98c37b4354d9c8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

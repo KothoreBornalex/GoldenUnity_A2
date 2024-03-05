@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee5e502199d4e240a4a20f17b798e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerType: 0
   _selectionCircleRadius: 0.9
   _debugSelectionCircleRadius: 1
   IsSelectedUnityEvent:
@@ -216,6 +217,9 @@ MonoBehaviour:
   _swipeThreshOld: 1
   _isMoving: 0
   _isAgainstTheWall: 0
+  OnCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &5065997960333381624
 Rigidbody2D:
   serializedVersion: 4

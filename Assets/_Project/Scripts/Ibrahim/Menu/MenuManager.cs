@@ -48,7 +48,8 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(Instance);
+            Instance = this;
         }
     }
 
@@ -147,11 +148,18 @@ public class MenuManager : MonoBehaviour
         SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._buttonFocus);
     }
 
+    public void GoBackToMenu()
+    {
+        LoadingManager.instance.LoadSceneWithLoadingScreen(GameAssets.instance.GameLevelsBank.MainMenu.SceneName, true, LoadingManager.instance.CurrentScene);
+        LoadingManager.instance.UnloadScene(GameAssets.instance.GameLevelsBank.PauseMenu.SceneName);
+    }
+
     public void StartLevel(string sceneName)
     {
         LoadingManager.instance.LoadSceneWithLoadingScreen(sceneName, true, LoadingManager.instance.CurrentScene);
-        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._levelOneMusic);
+        //SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._levelOneMusic);
     }
+
 
     public void InitializeLevelsSelection()
     {

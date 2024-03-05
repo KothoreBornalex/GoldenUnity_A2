@@ -90,7 +90,7 @@ public class LoadingManager : MonoBehaviour
 
         //Make the fade In appear and wait before it is done.
         _loadingAnimator.Play("FadeIn");
-        await Task.Delay(2500);
+        await Task.Delay(1500);
 
         if (unloadCurrentMap)
         {
@@ -114,7 +114,7 @@ public class LoadingManager : MonoBehaviour
 
         //Make the fade Out appear and wait before it is done.
         _loadingAnimator.Play("FadeOut");
-        await Task.Delay(2500);
+        await Task.Delay(1500);
 
         //Loading the targeted scene.
         var scene = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -132,7 +132,7 @@ public class LoadingManager : MonoBehaviour
 
         //Make the fade In appear and wait before it is done.
         _loadingAnimator.Play("FadeIn");
-        await Task.Delay(2500);
+        await Task.Delay(1500);
 
         //Activating the main camera during the loading screen.
         //CameraManager.instance._camera.enabled = true;
@@ -148,7 +148,7 @@ public class LoadingManager : MonoBehaviour
         //Make the fade Out appear and wait before it is done.
         _loadingAnimator.Play("FadeOut");
 
-        await Task.Delay(2500);
+        await Task.Delay(1500);
         _loadingCanvas.SetActive(false);
 
     }
