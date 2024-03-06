@@ -101,7 +101,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 353
+      x: 755
       y: 4
       width: 410
       height: 324
@@ -971,7 +971,7 @@ ScriptedImporter:
     - {x: 45, y: 46}
     - {x: 46, y: 47}
     tessellationDetail: 0
-    uvTransform: {x: 353, y: 4}
+    uvTransform: {x: 755, y: 4}
     spritePosition: {x: 289, y: 454}
   - name: "Cr\xE2ne"
     originalName: 
@@ -980,8 +980,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 451
+      x: 1173
+      y: 4
       width: 322
       height: 366
     spriteID: 953de7bbc84f3a549b55c23e7829a98b
@@ -1398,7 +1398,7 @@ ScriptedImporter:
     - {x: 33, y: 34}
     - {x: 34, y: 35}
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 451}
+    uvTransform: {x: 1173, y: 4}
     spritePosition: {x: 343, y: 334}
   - name: Oreilles
     originalName: 
@@ -1407,8 +1407,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 353
-      y: 336
+      x: 4
+      y: 451
       width: 415
       height: 140
     spriteID: ce76d196f1847094393ffb191226a39c
@@ -1889,17 +1889,17 @@ ScriptedImporter:
     - {x: 23, y: 24}
     - {x: 24, y: 25}
     tessellationDetail: 0
-    uvTransform: {x: 353, y: 336}
+    uvTransform: {x: 4, y: 451}
     spritePosition: {x: 296, y: 426}
   - name: Bras droit dos
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.33787218, y: 0.14839695}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 1422
+      y: 599
       width: 173
       height: 274
     spriteID: 811285bc7ca1c934e9eac230a0c1ae3c
@@ -2455,17 +2455,17 @@ ScriptedImporter:
     - {x: 32, y: 33}
     - {x: 33, y: 34}
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 1422}
+    uvTransform: {x: 4, y: 599}
     spritePosition: {x: 271, y: 525}
   - name: Bras droit canne repos
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.45794877, y: 0.8808478}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 1704
+      x: 185
+      y: 599
       width: 145
       height: 317
     spriteID: dd683dbdbb3f8384f9037e2e9a394c0d
@@ -3100,17 +3100,17 @@ ScriptedImporter:
     - {x: 34, y: 35}
     - {x: 35, y: 36}
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 1704}
+    uvTransform: {x: 185, y: 599}
     spritePosition: {x: 264, y: 284}
   - name: Bras droit canne spin 1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.8444859, y: 0.92681885}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 825
+      x: 1503
+      y: 4
       width: 177
       height: 420
     spriteID: 34fc6691830583c4ea7f9363deac217d
@@ -3701,17 +3701,17 @@ ScriptedImporter:
     - {x: 37, y: 38}
     - {x: 38, y: 39}
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 825}
+    uvTransform: {x: 1503, y: 4}
     spritePosition: {x: 187, y: 182}
   - name: Bras droit canne spin 2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.82, y: 0.29}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 1253
+      x: 1688
+      y: 4
       width: 331
       height: 161
     spriteID: 658b554d55f952745ad47df0149b0f01
@@ -4223,12 +4223,33 @@ ScriptedImporter:
     - {x: 38, y: 39}
     - {x: 39, y: 40}
     tessellationDetail: 0
-    uvTransform: {x: -9, y: 1182}
+    uvTransform: {x: 1675, y: -67}
     spritePosition: {x: 13, y: 442}
+  - name: Bras droit hit bot
+    originalName: 
+    pivot: {x: 0.77856195, y: 0.8977286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 353
+      y: 4
+      width: 394
+      height: 371
+    spriteID: 989c155456b2d9243862e8197b766200
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 353, y: 4}
+    spritePosition: {x: 18, y: 227}
   - name: Bras droit hit top
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.10661825, y: 0.91667974}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -4949,13 +4970,13 @@ ScriptedImporter:
     spritePosition: {x: 287, y: 159}
   - name: Bras gauche
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.6145048, y: 0.09840319}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 771
-      y: 4
+      x: 1688
+      y: 173
       width: 213
       height: 249
     spriteID: c1db2038fab57d04b983a3711e441394
@@ -5568,7 +5589,7 @@ ScriptedImporter:
     - {x: 39, y: 40}
     - {x: 40, y: 41}
     tessellationDetail: 0
-    uvTransform: {x: 771, y: 4}
+    uvTransform: {x: 1688, y: 173}
     spritePosition: {x: 554, y: 542}
   - name: Nez
     originalName: 
@@ -5577,8 +5598,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 353
-      y: 484
+      x: 502
+      y: 599
       width: 210
       height: 184
     spriteID: 6f47708c7f411cb4bb41b49f53a7c03a
@@ -6003,7 +6024,7 @@ ScriptedImporter:
     - {x: 31, y: 32}
     - {x: 32, y: 33}
     tessellationDetail: 0
-    uvTransform: {x: 353, y: 484}
+    uvTransform: {x: 502, y: 599}
     spritePosition: {x: 402, y: 239}
   - name: Canne
     originalName: 
@@ -6012,8 +6033,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 189
-      y: 825
+      x: 338
+      y: 599
       width: 156
       height: 252
     spriteID: 1af290faad5a7ef40bb3419848982745
@@ -6565,7 +6586,7 @@ ScriptedImporter:
     - {x: 39, y: 40}
     - {x: 40, y: 41}
     tessellationDetail: 0
-    uvTransform: {x: 189, y: 825}
+    uvTransform: {x: 338, y: 599}
     spritePosition: {x: 311, y: 140}
   characterData:
     bones:
@@ -7155,7 +7176,7 @@ ScriptedImporter:
     parentIndex: 41
     spriteID: 7cd93fa4c58f1c14c90603292b0fb5cf
     layerID: 259
-    mosaicPosition: {x: 353, y: 4}
+    mosaicPosition: {x: 755, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -7165,7 +7186,7 @@ ScriptedImporter:
     parentIndex: 41
     spriteID: 953de7bbc84f3a549b55c23e7829a98b
     layerID: 255
-    mosaicPosition: {x: 4, y: 451}
+    mosaicPosition: {x: 1173, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -7175,7 +7196,7 @@ ScriptedImporter:
     parentIndex: 41
     spriteID: ce76d196f1847094393ffb191226a39c
     layerID: 250
-    mosaicPosition: {x: 353, y: 336}
+    mosaicPosition: {x: 4, y: 451}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -7205,7 +7226,7 @@ ScriptedImporter:
     parentIndex: 46
     spriteID: 811285bc7ca1c934e9eac230a0c1ae3c
     layerID: 243
-    mosaicPosition: {x: 4, y: 1422}
+    mosaicPosition: {x: 4, y: 599}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -7215,7 +7236,7 @@ ScriptedImporter:
     parentIndex: 46
     spriteID: dd683dbdbb3f8384f9037e2e9a394c0d
     layerID: 239
-    mosaicPosition: {x: 4, y: 1704}
+    mosaicPosition: {x: 185, y: 599}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -7225,7 +7246,7 @@ ScriptedImporter:
     parentIndex: 46
     spriteID: 34fc6691830583c4ea7f9363deac217d
     layerID: 235
-    mosaicPosition: {x: 4, y: 825}
+    mosaicPosition: {x: 1503, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -7235,7 +7256,17 @@ ScriptedImporter:
     parentIndex: 46
     spriteID: 658b554d55f952745ad47df0149b0f01
     layerID: 231
-    mosaicPosition: {x: 4, y: 1253}
+    mosaicPosition: {x: 1688, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Bras droit hit bot
+    spriteName: Bras droit hit bot
+    isGroup: 0
+    parentIndex: 46
+    spriteID: 989c155456b2d9243862e8197b766200
+    layerID: 264
+    mosaicPosition: {x: 353, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -7255,7 +7286,7 @@ ScriptedImporter:
     parentIndex: 45
     spriteID: c1db2038fab57d04b983a3711e441394
     layerID: 222
-    mosaicPosition: {x: 771, y: 4}
+    mosaicPosition: {x: 1688, y: 173}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -7265,7 +7296,7 @@ ScriptedImporter:
     parentIndex: 40
     spriteID: 6f47708c7f411cb4bb41b49f53a7c03a
     layerID: 217
-    mosaicPosition: {x: 353, y: 484}
+    mosaicPosition: {x: 502, y: 599}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -7275,7 +7306,7 @@ ScriptedImporter:
     parentIndex: 40
     spriteID: 1af290faad5a7ef40bb3419848982745
     layerID: 212
-    mosaicPosition: {x: 189, y: 825}
+    mosaicPosition: {x: 338, y: 599}
     flatten: 0
     isImported: 1
     isVisible: 1
