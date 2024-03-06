@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LineRendererMovement : MonoBehaviour
 {
@@ -37,6 +38,11 @@ public class LineRendererMovement : MonoBehaviour
     private Vector3 _normalizedDirection;
     public event Action<bool> ToggleReadyToMove;
 
+
+    [Header("Unity Events")]
+    [SerializeField] private UnityEvent OnPathInvalid;
+    [SerializeField] private UnityEvent OnPathValid;
+    [SerializeField] private UnityEvent OnStartMoving;
 
     #region  Start & OnEnable & OnDisable
     private void Start()
@@ -237,6 +243,7 @@ public class LineRendererMovement : MonoBehaviour
     {
         Debug.Log(" Collision");
 
+        OnPathInvalid?.Invoke();
         SetLineColor(_errorPathColor);
         ClearPath();
     }
@@ -245,6 +252,7 @@ public class LineRendererMovement : MonoBehaviour
         Debug.Log("No Collision");
         SetLineColor(_acheivedPathColor);
         _isReadyToMove = true;
+        OnPathValid?.Invoke();
         ToggleReadyToMove?.Invoke(_isReadyToMove);
 
         ToggleClearPath?.Invoke(true);
@@ -288,6 +296,7 @@ public class LineRendererMovement : MonoBehaviour
     {
         _isReadyToMove = false;
         ToggleReadyToMove?.Invoke(_isReadyToMove);
+        OnStartMoving?.Invoke();
 
         InverseVertsOrder();
 

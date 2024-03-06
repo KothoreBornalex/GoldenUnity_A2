@@ -23,6 +23,12 @@ public class CheckDirrection : MonoBehaviour
     {
         //Quaternion.AngleAxis(20f, Vector3.forward) * Vector2.right
     }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     IEnumerator InspectSuroundings(float _waitngTime)
     {
         _isIspecting = true;
