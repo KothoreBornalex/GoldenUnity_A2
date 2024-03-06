@@ -132,10 +132,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 188828302}
-  - component: {fileID: 188828303}
-  - component: {fileID: 188828307}
   - component: {fileID: 188828305}
   - component: {fileID: 188828306}
+  - component: {fileID: 188828307}
   m_Layer: 0
   m_Name: Player - GrandMa
   m_TagString: Untagged
@@ -159,23 +158,6 @@ Transform:
   - {fileID: 1090519110}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &188828303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188828300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14184718a38a1674a83aaa65ed334fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 188828305}
-  _speed: 300
-  _swipeThreshOld: 1
-  _isMoving: 0
-  _isAgainstTheWall: 0
 --- !u!50 &188828305
 Rigidbody2D:
   serializedVersion: 4
@@ -257,17 +239,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 188828300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee5e502199d4e240a4a20f17b798e9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 11f5ecf2e9feb604e9041715d80c3572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectionCircleRadius: 0.9
-  _debugSelectionCircleRadius: 1
-  IsSelectedUnityEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  IsUnSelectedUnityEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  _rb: {fileID: 188828305}
+  _speed: 300
+  _swipeThreshOld: 1
+  _isMoving: 0
+  _isAgainstTheWall: 0
 --- !u!1 &199457763
 GameObject:
   m_ObjectHideFlags: 0
