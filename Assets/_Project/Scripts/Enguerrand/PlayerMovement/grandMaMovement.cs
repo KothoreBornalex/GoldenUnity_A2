@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class grandMaMovement : MonoBehaviour
 {
+    [SerializeField] private PlayerManager _playerManager;
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] float _speed;
     [SerializeField] float _swipeThreshOld = 20f;
@@ -13,11 +15,16 @@ public class grandMaMovement : MonoBehaviour
 
     [SerializeField] bool _isMoving = false;
     [SerializeField] bool _isAgainstTheWall = false;
+    private bool _canReceiveInput;
+
     private bool _detectSwipeOnlyAfterRelease = false;
     private bool _LeftWallDetection = false;
     private bool _RigthWallDetection = false;
     private bool _UpWallDetection = false;
     private bool _DownWallDetection = false;
+
+    [Header("Unity Events")]
+    [SerializeField] private UnityEvent OnCollision;
 
     enum Direction
     {
@@ -28,8 +35,40 @@ public class grandMaMovement : MonoBehaviour
     };
     Direction _dir;
 
+    private void OnEnable()
+    {
+        if (_playerManager != null) _playerManager.IsSelected += _playerManager_IsSelected;
+        if (_playerManager != null) _playerManager.IsUnSelected += _playerManager_IsUnSelected;
+    }
+
+
+
+
+    private void OnDisable()
+    {
+        if (_playerManager != null) _playerManager.IsSelected -= _playerManager_IsSelected;
+        if (_playerManager != null) _playerManager.IsUnSelected -= _playerManager_IsUnSelected;
+    }
+
+
+    private void _playerManager_IsSelected()
+    {
+        _canReceiveInput = true;
+    }
+    private void _playerManager_IsUnSelected()
+    {
+        _canReceiveInput = false;
+    }
+
+
+
+
     void FixedUpdate()
     {
+        if (_playerManager.IsPaused) return;
+        if (!_canReceiveInput) return;
+
+
         if (!_isMoving)
         {
             foreach (Touch touch in Input.touches)
@@ -131,7 +170,9 @@ public class grandMaMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _rb.velocity -= _rb.velocity * .25f;
+        OnCollision?.Invoke();
+        _rb.position -= _rb.velocity * .35f;
+        _rb.velocity = Vector3.zero;
         _isAgainstTheWall = true;
         _isMoving = false;
     }
