@@ -294,6 +294,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8778449475474144075, guid: 5fdc3a6b49a5ea3428e2aca40f9aaefb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: 5fdc3a6b49a5ea3428e2aca40f9aaefb, type: 3}
       propertyPath: m_Name
       value: SP_CH_Gigi_001
@@ -350,13 +354,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -2053847700653792632, guid: 5fdc3a6b49a5ea3428e2aca40f9aaefb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.860984
+      objectReference: {fileID: 0}
     - target: {fileID: -1969358260268060444, guid: 5fdc3a6b49a5ea3428e2aca40f9aaefb, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -24607601355412913, guid: 5fdc3a6b49a5ea3428e2aca40f9aaefb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1399999
+      objectReference: {fileID: 0}
+    - target: {fileID: -24607601355412913, guid: 5fdc3a6b49a5ea3428e2aca40f9aaefb, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099534990088122634, guid: 5fdc3a6b49a5ea3428e2aca40f9aaefb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1149998
       objectReference: {fileID: 0}
     - target: {fileID: 3242526333606884168, guid: 5fdc3a6b49a5ea3428e2aca40f9aaefb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -523,6 +539,14 @@ PrefabInstance:
     - target: {fileID: 1099534990088122634, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.005000114
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099534990088122634, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3242526333606884168, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
