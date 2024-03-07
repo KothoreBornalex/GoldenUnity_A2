@@ -75,6 +75,9 @@ public class LineRendererMovement : MonoBehaviour
     }
     private void _playerManager_IsUnSelected()
     {
+        if(_isDrawing) ClearPath();
+        if(_isReadyToMove) ClearPath();
+
         _canDrawPath = false;
     }
 
