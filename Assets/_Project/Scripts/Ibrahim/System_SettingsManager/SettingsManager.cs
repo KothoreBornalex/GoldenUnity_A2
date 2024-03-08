@@ -73,13 +73,13 @@ public static class SettingsManager
 
     public static bool GetToggle(Settings setting)
     {
-        if (PlayerPrefs.GetInt(setting.ToString()) == 1) return true;
+        if (PlayerPrefs.GetInt(setting.ToString(), 1) == 1) return true;
         else return false;
     }
 
     public static float GetFloat(Settings setting)
     {
-        return PlayerPrefs.GetFloat(setting.ToString());
+        return PlayerPrefs.GetFloat(setting.ToString(), 0.75f);
     }
     #endregion
 

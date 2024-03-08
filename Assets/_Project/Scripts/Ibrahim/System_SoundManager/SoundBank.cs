@@ -37,6 +37,8 @@ public class SoundBank : ScriptableObject
     [Header("UI Sounds")]
     [SerializeField] public Sound _buttonFocus;
 
+    [Header("Game Sounds")]
+    [SerializeField] public Sound _soundEmitter;
 
 }
 

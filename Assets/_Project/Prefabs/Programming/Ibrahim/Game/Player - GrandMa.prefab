@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 1085517860332138866}
   m_Layer: 9
   m_Name: Player - GrandMa
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,8 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee5e502199d4e240a4a20f17b798e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerType: 0
   _selectionCircleRadius: 0.9
-  _debugSelectionCircleRadius: 1
+  _debugSelectionCircleRadius: 0
   IsSelectedUnityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -210,12 +211,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14184718a38a1674a83aaa65ed334fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerManager: {fileID: 4840848226462413157}
-  _rb: {fileID: 5065997960333381624}
   _speed: 300
-  _swipeThreshOld: 1
+  _swipeThreshOld: 2
   _isMoving: 0
-  _isAgainstTheWall: 0
+  _wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _detectionLength: 10
+  _minPerimetre: 2
+  OnCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &5065997960333381624
 Rigidbody2D:
   serializedVersion: 4
@@ -239,9 +245,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1085517860332138866
 BoxCollider2D:
