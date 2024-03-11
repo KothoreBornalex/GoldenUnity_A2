@@ -17,10 +17,12 @@ public class grandMaMovement : MonoBehaviour
     private Camera _camera;
     private PlayerManager _playerManager;
     private Rigidbody2D _rb;
+    private Animator _animator;
 
     [Header("Player Settings")]
     [SerializeField, Range(10, 1000)] float _speed;
     private float _multipliedSpeed;
+
     [SerializeField, Range(1, 40)] float _swipeThreshOld = 20f;
     [SerializeField] bool _isMoving = false;
     private Direction _dir;
@@ -48,6 +50,7 @@ public class grandMaMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerManager = GetComponent<PlayerManager>();
+        _animator = GetComponentInChildren<Animator>();
 
         _multipliedSpeed = _speed * _rb.mass;
     }
