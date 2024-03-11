@@ -83,6 +83,8 @@ public class LineRendererMovement : MonoBehaviour
         if(_isReadyToMove) ClearPath();
 
         _canDrawPath = false;
+        _isDrawing = false;
+        DeletePath();
     }
 
 
@@ -189,7 +191,7 @@ public class LineRendererMovement : MonoBehaviour
     private IEnumerator DrawLine()
     {
 
-        while (true)
+        while (_isDrawing)
         {
             Vector3 position = _camera.ScreenToWorldPoint(Input.mousePosition);
             position.z = 0;
