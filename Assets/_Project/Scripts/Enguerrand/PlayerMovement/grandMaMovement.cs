@@ -20,6 +20,7 @@ public class grandMaMovement : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField, Range(10, 1000)] float _speed;
+    private float _multipliedSpeed;
     [SerializeField, Range(1, 40)] float _swipeThreshOld = 20f;
     [SerializeField] bool _isMoving = false;
     private Direction _dir;
@@ -47,6 +48,8 @@ public class grandMaMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerManager = GetComponent<PlayerManager>();
+
+        _multipliedSpeed = _speed * _rb.mass;
     }
     private void Start()
     {
@@ -143,7 +146,7 @@ public class grandMaMovement : MonoBehaviour
                 if (!IsUnObstructed(_dir)) return;
 
                 //move upward
-                ApplyMovement(new Vector2(0, _speed * Time.fixedDeltaTime));
+                ApplyMovement(new Vector2(0, _multipliedSpeed * Time.fixedDeltaTime));
                 _isMoving = true;
             }
             else if (_endSwiping.y - _startSwiping.y < 0) //down swipe
@@ -152,7 +155,7 @@ public class grandMaMovement : MonoBehaviour
                 if (!IsUnObstructed(_dir)) return;
 
                 //move downward
-                ApplyMovement(new Vector2(0, -_speed * Time.fixedDeltaTime));
+                ApplyMovement(new Vector2(0, -_multipliedSpeed * Time.fixedDeltaTime));
                 _isMoving = true;
             }
         }
@@ -165,7 +168,7 @@ public class grandMaMovement : MonoBehaviour
                 if (!IsUnObstructed(_dir)) return;
 
                 //move right
-                ApplyMovement(new Vector2(_speed * Time.fixedDeltaTime, 0));
+                ApplyMovement(new Vector2(_multipliedSpeed * Time.fixedDeltaTime, 0));
                 _isMoving = true;
                 
             }
@@ -175,7 +178,7 @@ public class grandMaMovement : MonoBehaviour
                 if (!IsUnObstructed(_dir)) return;
 
                 //move left
-                ApplyMovement(new Vector2(-_speed * Time.fixedDeltaTime, 0));
+                ApplyMovement(new Vector2(-_multipliedSpeed * Time.fixedDeltaTime, 0));
                 _isMoving = true;
                 
             }

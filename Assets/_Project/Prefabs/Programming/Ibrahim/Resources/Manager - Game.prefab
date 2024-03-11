@@ -314,16 +314,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectives: []
-  _canvas: {fileID: 467159043587772342}
+  _endGameCanvas: {fileID: 467159043587772342}
+  _pauseButtonCanvas: {fileID: 7699978448946410848}
   _panelVictory: {fileID: 3452105228453192270}
   _panelDefeat: {fileID: 2282172463258843659}
-  _onGameEnd:
+  OnGameEndUnityEvent:
     m_PersistentCalls:
       m_Calls: []
-  _onVictory:
+  OnVictoryUnityEvent:
     m_PersistentCalls:
       m_Calls: []
-  _onDefeat:
+  OnDefeatUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPausedUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnPausedUnityEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &6384635484580657215
