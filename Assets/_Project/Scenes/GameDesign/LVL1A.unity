@@ -3525,7 +3525,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3177747069873362725, guid: 93a5cf70fb0097c4f98604a9c5faa2c2, type: 3}
   m_PrefabInstance: {fileID: 1784098934}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2057340998}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54ec33704fbf20d4397bd446d1a7f914, type: 3}
@@ -4525,6 +4525,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.36
       objectReference: {fileID: 0}
+    - target: {fileID: 4343776871987978014, guid: 7ff912f03c13bdd4eb8145b698c27451, type: 3}
+      propertyPath: _radius
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343776871987978014, guid: 7ff912f03c13bdd4eb8145b698c27451, type: 3}
+      propertyPath: OnSoundEmitterTriggered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343776871987978014, guid: 7ff912f03c13bdd4eb8145b698c27451, type: 3}
+      propertyPath: OnSoundEmitterTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343776871987978014, guid: 7ff912f03c13bdd4eb8145b698c27451, type: 3}
+      propertyPath: OnSoundEmitterTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2057340998}
+    - target: {fileID: 4343776871987978014, guid: 7ff912f03c13bdd4eb8145b698c27451, type: 3}
+      propertyPath: OnSoundEmitterTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6909625897370431197, guid: 7ff912f03c13bdd4eb8145b698c27451, type: 3}
       propertyPath: m_Name
       value: SoundEmitter
@@ -4730,11 +4750,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1498791885397427060, guid: 93a5cf70fb0097c4f98604a9c5faa2c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.63
+      value: 2.77
       objectReference: {fileID: 0}
     - target: {fileID: 1498791885397427060, guid: 93a5cf70fb0097c4f98604a9c5faa2c2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 1498791885397427060, guid: 93a5cf70fb0097c4f98604a9c5faa2c2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5465,6 +5485,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2057340998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 449328772196574530, guid: 93a5cf70fb0097c4f98604a9c5faa2c2, type: 3}
+  m_PrefabInstance: {fileID: 1784098934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2062452493
 PrefabInstance:
   m_ObjectHideFlags: 0
