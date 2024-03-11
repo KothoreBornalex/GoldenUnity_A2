@@ -128,7 +128,11 @@ public class GameManager : MonoBehaviour
 
     public void ActivatePause()
     {
-        MenuManager.Instance.Canvas.enabled = !MenuManager.Instance.Canvas.enabled;
+        if (MenuManager.PauseMenuManager_Instance == null)
+        {
+            Debug.Log("Is Null");
+        }
+        MenuManager.PauseMenuManager_Instance.Canvas.enabled = !MenuManager.PauseMenuManager_Instance.Canvas.enabled;
 
         OnPaused?.Invoke();
         OnPausedUnityEvent?.Invoke();
@@ -139,7 +143,7 @@ public class GameManager : MonoBehaviour
 
     public void DesactivatePause()
     {
-        MenuManager.Instance.Canvas.enabled = !MenuManager.Instance.Canvas.enabled;
+        MenuManager.PauseMenuManager_Instance.Canvas.enabled = !MenuManager.PauseMenuManager_Instance.Canvas.enabled;
         OnUnPaused?.Invoke();
         OnUnPausedUnityEvent?.Invoke();
 

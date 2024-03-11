@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class PatrolEnnemy : MonoBehaviour
+public class PatrolEnnemy : GuardGlobalClass
 {
     [SerializeField] float _speed = 2f;
     [SerializeField, Range(0f, 50f)]

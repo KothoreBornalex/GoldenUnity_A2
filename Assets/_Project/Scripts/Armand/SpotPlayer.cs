@@ -6,23 +6,23 @@ using UnityEngine.Rendering.Universal;
 public class SpotPlayer : MonoBehaviour
 {
     private Light2D _viewCone;
-    [SerializeField] float _viewAngle;
-    [SerializeField] float _viewRadius;
+    private float _viewAngle;
+    private float _viewRadius;
     [SerializeField] private LayerMask _layersToCollideWith;
 
     private bool _hasLineOfSight = false;
     private float _rotationAngle;
     private float _incrementAngle;
-    [SerializeField] float _rotationSpeed;
+    private float _rotationSpeed = 200;
 
     private void Start()
     {
-        //_player1 = GameObject.FindGameObjectWithTag("Player1");
-        //_player2 = GameObject.FindGameObjectWithTag("Player2");
+        _rotationSpeed = 200;
         _viewCone = GetComponent<Light2D>();
-        _viewCone.pointLightOuterAngle = _viewAngle;
-        _viewCone.pointLightInnerAngle = _viewAngle;
-        _viewCone.pointLightOuterRadius = _viewRadius;
+
+        _viewAngle = _viewCone.pointLightOuterRadius;
+        _viewRadius = _viewCone.pointLightOuterAngle;
+
 
     }
 

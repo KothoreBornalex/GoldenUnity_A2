@@ -31,6 +31,8 @@ public class AttackComponent : MonoBehaviour
     {
         _enemyDetected = true;
         _enemy = collision.gameObject;
+
+        Attack();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
