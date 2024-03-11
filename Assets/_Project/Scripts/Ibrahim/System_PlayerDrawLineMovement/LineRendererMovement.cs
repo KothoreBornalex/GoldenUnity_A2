@@ -83,6 +83,8 @@ public class LineRendererMovement : MonoBehaviour
         if(_isReadyToMove) ClearPath();
 
         _canDrawPath = false;
+        _isDrawing = false;
+        DeletePath();
     }
 
 
@@ -189,7 +191,7 @@ public class LineRendererMovement : MonoBehaviour
     private IEnumerator DrawLine()
     {
 
-        while (true)
+        while (_isDrawing)
         {
             Vector3 position = _camera.ScreenToWorldPoint(Input.mousePosition);
             position.z = 0;
@@ -353,6 +355,29 @@ public class LineRendererMovement : MonoBehaviour
     }
     #endregion
 
+    #region Animations Functions
+    public void Anim_StartWalk()
+    {
+        if (_animator) _animator.SetBool("isWalking", true);
+    }
+
+    public void Anim_StopWalk()
+    {
+        if (_animator) _animator.SetBool("isWalking", false);
+    }
+
+
+    public void Anim_TriggerAttack()
+    {
+        if(_animator) _animator.SetTrigger("isAttacking");
+    }
+
+    public void Anim_ToggleHasStick(bool value)
+    {
+        if (_animator) _animator.SetBool("hasStick", value);
+    }
+
+    #endregion
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

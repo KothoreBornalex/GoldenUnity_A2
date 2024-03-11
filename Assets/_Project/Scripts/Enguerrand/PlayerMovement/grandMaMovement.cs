@@ -42,10 +42,11 @@ public class grandMaMovement : MonoBehaviour
     private float timer;
     [Header("Unity Events")]
     [SerializeField] private UnityEvent OnCollision;
+    [SerializeField] private UnityEvent OnStartMoving;
+    [SerializeField] private UnityEvent OnStopMoving;
 
-    
 
-
+    #region Initializing Component
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -82,7 +83,7 @@ public class grandMaMovement : MonoBehaviour
         _canReceiveInput = false;
     }
 
-
+    #endregion
 
     private void Update()
     {
@@ -94,6 +95,13 @@ public class grandMaMovement : MonoBehaviour
         }
 
         if (timer < 0.15f) return;
+
+        if(_rb.velocity.magnitude == 0 && _isMoving)
+        {
+            _isMoving = false;
+            OnStopMoving?.Invoke();
+        }
+
 
         if (!_isMoving)
         {
@@ -130,7 +138,7 @@ public class grandMaMovement : MonoBehaviour
     }
 
 
-
+    #region Inputs Functions
     void CheckSwipe()
     {
         /*if (GetSwipePower() > _swipeThreshOld)
@@ -189,8 +197,22 @@ public class grandMaMovement : MonoBehaviour
     }
 
 
+    float verticalSwipe()
+    {
+        return Mathf.Abs(_endSwiping.y - _startSwiping.y);
+    }
+    float horizontalSwipe()
+    {
+        return Mathf.Abs(_endSwiping.x - _startSwiping.x);
+    }
+
+
+    #endregion
+
+    #region Movements Functions
     void ApplyMovement(Vector2 movement)
     {
+        OnStartMoving?.Invoke();
         _rb.AddForce(movement, ForceMode2D.Impulse);
     }
 
@@ -250,21 +272,33 @@ public class grandMaMovement : MonoBehaviour
         }
     }
 
-    float verticalSwipe()
+    #endregion
+
+
+    #region Animations Functions
+
+    public void Anim_StartWalk()
     {
-        return Mathf.Abs(_endSwiping.y - _startSwiping.y);
-    }
-    float horizontalSwipe()
-    {
-        return Mathf.Abs(_endSwiping.x - _startSwiping.x);
+        if (_animator) _animator.SetBool("isWalking", true);
     }
 
+    public void Anim_StopWalk()
+    {
+        if (_animator) _animator.SetBool("isWalking", false);
+    }
+
+
+    public void Anim_TriggerAttack()
+    {
+        if (_animator) _animator.SetTrigger("isAttacking");
+    }
+
+    #endregion
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         OnCollision?.Invoke();
-        _rb.velocity = Vector3.zero;
-        _isMoving = false;
+
     }
 
 }
