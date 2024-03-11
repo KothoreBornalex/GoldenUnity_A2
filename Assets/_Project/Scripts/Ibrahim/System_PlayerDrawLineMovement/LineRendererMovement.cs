@@ -14,6 +14,7 @@ public class LineRendererMovement : MonoBehaviour
 
     [Header("Global Fields")]
     private Camera _camera;
+    private Animator _animator;
 
     [Header("Path Fields")]
     [SerializeField, Range(0.1f, 5.0f)] private float _minLengthForValidPath;
@@ -43,11 +44,14 @@ public class LineRendererMovement : MonoBehaviour
     [SerializeField] private UnityEvent OnPathInvalid;
     [SerializeField] private UnityEvent OnPathValid;
     [SerializeField] private UnityEvent OnStartMoving;
+    [SerializeField] private UnityEvent OnStopMoving;
 
     #region  Start & OnEnable & OnDisable
     private void Start()
     {
-        if(!_camera) _camera = Camera.main;
+        if(!_animator) _animator = GetComponentInChildren<Animator>();
+
+        if (!_camera) _camera = Camera.main;
 
         if(_linePath) InitializedPath();
     }
@@ -273,6 +277,7 @@ public class LineRendererMovement : MonoBehaviour
         if(_isMoving)
         {
             _isMoving = false;
+            OnStopMoving?.Invoke();
             InverseVertsOrder();
             StartCoroutine(DeletePath());
             
@@ -304,7 +309,6 @@ public class LineRendererMovement : MonoBehaviour
         InverseVertsOrder();
 
         _isMoving = true;
-        // Feedback.
     }
 
     private void UpdateMovements()
@@ -346,7 +350,6 @@ public class LineRendererMovement : MonoBehaviour
 
         //Handling Position
         _rb.MovePosition(transform.position + _normalizedDirection * _movingSpeed * Time.deltaTime);
-        //_rb.AddForce(_normalizedDirection * _movingSpeed, ForceMode2D.Force);
     }
     #endregion
 
@@ -358,6 +361,7 @@ public class LineRendererMovement : MonoBehaviour
         ray.origin = transform.position;
         Gizmos.DrawRay(ray);
     }
+
     private void InverseVertsOrder()
     {
         List<Vector3> verts = new List<Vector3>();
