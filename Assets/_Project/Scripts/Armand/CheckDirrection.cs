@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
-public class CheckDirrection : MonoBehaviour
+public class CheckDirrection : GuardGlobalClass
 {
     [SerializeField] bool _lookRight;
     [SerializeField] bool _lookLeft;
