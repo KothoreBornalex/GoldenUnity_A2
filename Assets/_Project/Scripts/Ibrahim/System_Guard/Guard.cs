@@ -1,37 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using static UnityEngine.GraphicsBuffer;
 
 public class Guard : Objective
 {
-    [Header("Guard Fields")]
-    [SerializeField] private Animator _animator;
-    private GuardGlobalClass _guardGlobalClass;
+    [SerializeField] private CheckDirrection _checkDirection;
     private Transform _target;
     public void Eliminate()
     {
-        Complete();
-        _guardGlobalClass.enabled = false;
-
-        if (_animator)
-        {
-            _animator.SetBool("isDead", true);
-            GetComponentInChildren<Light2D>().enabled = false;   
-        }
-
-        else gameObject.SetActive(false);
+        IsCompleted = true;
+        gameObject.SetActive(false);
     }
-
-
-    private void Start()
-    {
-        _guardGlobalClass = GetComponent<GuardGlobalClass>();  
-    }
-
     private void Update()
     {
         if (_target == null) return;
@@ -42,7 +23,6 @@ public class Guard : Objective
 
         Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 3.0f * Time.deltaTime);
-        
     }
 
 
@@ -50,12 +30,9 @@ public class Guard : Objective
 
     public void SetTarget(Transform target)
     {
-        _guardGlobalClass.enabled = false;
+        _checkDirection.enabled = false;
         _target = target;
     }
-
-
-
 
 /*    public IEnumerator RotateTowardEmitter(Transform point)
     {
@@ -84,24 +61,3 @@ public class Guard : Objective
 
     }*/
 }
-
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(Guard))]
-public class GuardEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        // Display the default inspector GUI
-        DrawDefaultInspector();
-
-        // Cast the target to MyClass
-        Guard guard = (Guard)target;
-
-        if (GUILayout.Button("Eliminate The Guard"))
-        {
-            guard.Eliminate();
-        }
-    }
-}
-#endif

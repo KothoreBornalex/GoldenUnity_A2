@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolEnnemy : GuardGlobalClass
+public class PatrolEnnemy : MonoBehaviour
 {
     [SerializeField] float _speed = 2f;
     [SerializeField, Range(0f, 50f)]
