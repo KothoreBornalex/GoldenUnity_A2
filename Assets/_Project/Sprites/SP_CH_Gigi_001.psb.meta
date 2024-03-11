@@ -1,0 +1,1016 @@
+fileFormatVersion: 2
+guid: 5fdc3a6b49a5ea3428e2aca40f9aaefb
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Cheveux
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 466
+      y: 4
+      width: 493
+      height: 462
+    spriteID: 488fc45fdb70498468557c52b1ea0cc2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 466, y: 4}
+    spritePosition: {x: 266, y: 348}
+  - name: "Cr\xE2ne"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1097
+      width: 338
+      height: 282
+    spriteID: 762519acd829227488efe9ef87f014b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1097}
+    spritePosition: {x: 329, y: 347}
+  - name: Nez
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 466
+      y: 1832
+      width: 169
+      height: 163
+    spriteID: 51a1554c7522ccb44ba3fb7dc1eab5d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 466, y: 1832}
+    spritePosition: {x: 427, y: 275}
+  - name: Oreilles
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 967
+      y: 366
+      width: 497
+      height: 131
+    spriteID: 9303786131a7369499a47c10ce796491
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 967, y: 366}
+    spritePosition: {x: 252, y: 538}
+  - name: "Bras gauche - Arr\xEAt"
+    originalName: 
+    pivot: {x: 0.1951277, y: 0.6668756}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 679
+      y: 799
+      width: 144
+      height: 190
+    spriteID: 7a96786aab3edd9408993985ee00e7ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 679, y: 799}
+    spritePosition: {x: 670, y: 392}
+  - name: Bras gauche - Tendu
+    originalName: 
+    pivot: {x: 0.13415542, y: 0.4412268}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 217
+      y: 1961
+      width: 200
+      height: 83
+    spriteID: 0b847b1500cd4eb41948f5d8c6401a11
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 217, y: 1961}
+    spritePosition: {x: 668, y: 480}
+  - name: "Bras gauche - L\xE2ch\xE9"
+    originalName: 
+    pivot: {x: 0.13211043, y: 0.18930228}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 466
+      y: 1667
+      width: 179
+      height: 157
+    spriteID: 07a0866582b82a9489b7161c3122e16c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 466, y: 1667}
+    spritePosition: {x: 667, y: 480}
+  - name: "Bras droit - Arr\xEAt"
+    originalName: 
+    pivot: {x: 0.77610874, y: 0.7428401}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1735
+      width: 159
+      height: 231
+    spriteID: dda61d235d53b444abde1521f263eae8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1735}
+    spritePosition: {x: 201, y: 358}
+  - name: "Bras droit - L\xE2ch\xE9"
+    originalName: 
+    pivot: {x: 0.8534732, y: 0.30273038}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1684
+      y: 4
+      width: 207
+      height: 136
+    spriteID: 436de1d82f4958f4987af94b448bf14e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1684, y: 4}
+    spritePosition: {x: 143, y: 469}
+  - name: Bras droit- Tendu
+    originalName: 
+    pivot: {x: 0.87693053, y: 0.70138186}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 217
+      y: 1735
+      width: 220
+      height: 218
+    spriteID: 0366b43f66036174a8c64a0f57c8a1f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 217, y: 1735}
+    spritePosition: {x: 130, y: 363}
+  - name: Holo Grand s'ouvre
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 967
+      y: 181
+      width: 527
+      height: 177
+    spriteID: 5920e713d273fa4468891880423ee8f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 967, y: 181}
+    spritePosition: {x: 260, y: 43}
+  - name: Holo Grand Ouvert
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 967
+      y: 4
+      width: 709
+      height: 169
+    spriteID: 8414276b17638af48865a6e789b0f70a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 967, y: 4}
+    spritePosition: {x: 144, y: 41}
+  - name: Holo petit s'ouvre
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 679
+      y: 997
+      width: 147
+      height: 142
+    spriteID: ed6c3b1a51760534fb09f094deb1a81a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 679, y: 997}
+    spritePosition: {x: 229, y: 65}
+  - name: Holo petit ouvert
+    originalName: 
+    pivot: {x: 0.6895553, y: 0.9129445}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 466
+      y: 1470
+      width: 193
+      height: 189
+    spriteID: e324a076c835f2f4c890166304c6cca1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 466, y: 1470}
+    spritePosition: {x: 202, y: 45}
+  - name: Boitier
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 350
+      y: 1097
+      width: 80
+      height: 233
+    spriteID: d1065f6d84e721b4fbac50f406378bdc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 350, y: 1097}
+    spritePosition: {x: 313, y: 52}
+  - name: Corps
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 661
+      width: 303
+      height: 428
+    spriteID: 340c5fbb1df99d14bb48821d2694cf4b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 661}
+    spritePosition: {x: 365, y: 126}
+  - name: "Roue gauche - Arr\xEAt"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 679
+      y: 474
+      width: 206
+      height: 317
+    spriteID: 0594557005ab5534babcb890e11503db
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 679, y: 474}
+    spritePosition: {x: 660, y: 389}
+  - name: Roue gauche - Moving 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 466
+      y: 822
+      width: 204
+      height: 315
+    spriteID: 9f1a0dace7f175847a35c906ab1bf7d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 466, y: 822}
+    spritePosition: {x: 662, y: 389}
+  - name: Roue gauche - Moving 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 466
+      y: 1145
+      width: 202
+      height: 317
+    spriteID: 9ddfc41bd8db3cb4a9388130494d0671
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 466, y: 1145}
+    spritePosition: {x: 664, y: 389}
+  - name: "Roue droite - Arr\xEAt"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1387
+      width: 205
+      height: 340
+    spriteID: 599e8213be8201544a505ffbb3e8e0b0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1387}
+    spritePosition: {x: 153, y: 350}
+  - name: Roue droite - Moving 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 217
+      y: 1387
+      width: 205
+      height: 340
+    spriteID: 31dbd14871c555f4c869c8bb06d7b40d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 217, y: 1387}
+    spritePosition: {x: 153, y: 350}
+  - name: Roue droite - Moving 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 466
+      y: 474
+      width: 205
+      height: 340
+    spriteID: 0f534711d9c15564897c1f4ec04c783c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 466, y: 474}
+    spritePosition: {x: 153, y: 350}
+  - name: Corps
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 454
+      height: 649
+    spriteID: a4672ffff72583248885a1c6f2418e75
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 289, y: 125}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  padding: 4
+  spriteSizeExpand: 0
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Ref
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1f34cea92b676b74eb25d378d6409573
+    layerID: 15
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: gge
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9d34cee52226eb942a51a2b295e63a22
+    layerID: 307
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Perso
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 26d3cdb13a08a0542ac0ae4c3f012436
+    layerID: 6
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: "T\xEAte"
+    spriteName: 
+    isGroup: 1
+    parentIndex: 2
+    spriteID: 31986ee3789488249943f49c9a074403
+    layerID: 4
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Cheveux
+    spriteName: Cheveux
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 488fc45fdb70498468557c52b1ea0cc2
+    layerID: 31
+    mosaicPosition: {x: 466, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: "Cr\xE2ne"
+    spriteName: "Cr\xE2ne"
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 762519acd829227488efe9ef87f014b2
+    layerID: 35
+    mosaicPosition: {x: 4, y: 1097}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Nez
+    spriteName: Nez
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 51a1554c7522ccb44ba3fb7dc1eab5d0
+    layerID: 53
+    mosaicPosition: {x: 466, y: 1832}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Oreilles
+    spriteName: Oreilles
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 9303786131a7369499a47c10ce796491
+    layerID: 39
+    mosaicPosition: {x: 967, y: 366}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Bras
+    spriteName: 
+    isGroup: 1
+    parentIndex: 2
+    spriteID: 99e09577e8f249245891f680b6898861
+    layerID: 8
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Bras gauche
+    spriteName: 
+    isGroup: 1
+    parentIndex: 8
+    spriteID: 92fac308007620349a8e20a11322a8b2
+    layerID: 21
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: "Bras gauche - Arr\xEAt"
+    spriteName: "Bras gauche - Arr\xEAt"
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 7a96786aab3edd9408993985ee00e7ba
+    layerID: 204
+    mosaicPosition: {x: 679, y: 799}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Bras gauche - Tendu
+    spriteName: Bras gauche - Tendu
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 0b847b1500cd4eb41948f5d8c6401a11
+    layerID: 213
+    mosaicPosition: {x: 217, y: 1961}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: "Bras gauche - L\xE2ch\xE9"
+    spriteName: "Bras gauche - L\xE2ch\xE9"
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 07a0866582b82a9489b7161c3122e16c
+    layerID: 209
+    mosaicPosition: {x: 466, y: 1667}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Bras droit
+    spriteName: 
+    isGroup: 1
+    parentIndex: 8
+    spriteID: 69cc0593a8b770249bea55b11ce540d8
+    layerID: 19
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: "Bras droit - Arr\xEAt"
+    spriteName: "Bras droit - Arr\xEAt"
+    isGroup: 0
+    parentIndex: 13
+    spriteID: dda61d235d53b444abde1521f263eae8
+    layerID: 214
+    mosaicPosition: {x: 4, y: 1735}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: "Bras droit - L\xE2ch\xE9"
+    spriteName: "Bras droit - L\xE2ch\xE9"
+    isGroup: 0
+    parentIndex: 13
+    spriteID: 436de1d82f4958f4987af94b448bf14e
+    layerID: 223
+    mosaicPosition: {x: 1684, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Bras droit- Tendu
+    spriteName: Bras droit- Tendu
+    isGroup: 0
+    parentIndex: 13
+    spriteID: 0366b43f66036174a8c64a0f57c8a1f1
+    layerID: 219
+    mosaicPosition: {x: 217, y: 1735}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Fauteuil
+    spriteName: 
+    isGroup: 1
+    parentIndex: 2
+    spriteID: 347270e7028f4e8478fee870e7627216
+    layerID: 11
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Ecran
+    spriteName: 
+    isGroup: 1
+    parentIndex: 17
+    spriteID: b72643c906e46784083fd08d7cc8ffa7
+    layerID: 59
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Holo Grand
+    spriteName: 
+    isGroup: 1
+    parentIndex: 18
+    spriteID: 2da5c05a5131f6f4585c9ac145534c22
+    layerID: 275
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Holo Grand s'ouvre
+    spriteName: Holo Grand s'ouvre
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 5920e713d273fa4468891880423ee8f1
+    layerID: 279
+    mosaicPosition: {x: 967, y: 181}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Holo Grand Ouvert
+    spriteName: Holo Grand Ouvert
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 8414276b17638af48865a6e789b0f70a
+    layerID: 277
+    mosaicPosition: {x: 967, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Holo Petit
+    spriteName: 
+    isGroup: 1
+    parentIndex: 18
+    spriteID: 8230d7ef2d21ce24aaabbf32279c6927
+    layerID: 250
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Holo petit s'ouvre
+    spriteName: Holo petit s'ouvre
+    isGroup: 0
+    parentIndex: 22
+    spriteID: ed6c3b1a51760534fb09f094deb1a81a
+    layerID: 285
+    mosaicPosition: {x: 679, y: 997}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Holo petit ouvert
+    spriteName: Holo petit ouvert
+    isGroup: 0
+    parentIndex: 22
+    spriteID: e324a076c835f2f4c890166304c6cca1
+    layerID: 283
+    mosaicPosition: {x: 466, y: 1470}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Boitier
+    spriteName: Boitier
+    isGroup: 0
+    parentIndex: 18
+    spriteID: d1065f6d84e721b4fbac50f406378bdc
+    layerID: 259
+    mosaicPosition: {x: 350, y: 1097}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Corps
+    spriteName: Corps
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 340c5fbb1df99d14bb48821d2694cf4b
+    layerID: 13
+    mosaicPosition: {x: 4, y: 661}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Roues
+    spriteName: 
+    isGroup: 1
+    parentIndex: 17
+    spriteID: b5b9a002500118340bf0c5f058770c6f
+    layerID: 43
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Roue gauche
+    spriteName: 
+    isGroup: 1
+    parentIndex: 27
+    spriteID: 9e1b67405be3ba745b9f76dfaa092a40
+    layerID: 47
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: "Roue gauche - Arr\xEAt"
+    spriteName: "Roue gauche - Arr\xEAt"
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 0594557005ab5534babcb890e11503db
+    layerID: 176
+    mosaicPosition: {x: 679, y: 474}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Roue gauche - Moving 1
+    spriteName: Roue gauche - Moving 1
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 9f1a0dace7f175847a35c906ab1bf7d3
+    layerID: 241
+    mosaicPosition: {x: 466, y: 822}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Roue gauche - Moving 2
+    spriteName: Roue gauche - Moving 2
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 9ddfc41bd8db3cb4a9388130494d0671
+    layerID: 249
+    mosaicPosition: {x: 466, y: 1145}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Roue droite
+    spriteName: 
+    isGroup: 1
+    parentIndex: 27
+    spriteID: 9bb7fbb874904b147bf4d9781bdb553d
+    layerID: 45
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: "Roue droite - Arr\xEAt"
+    spriteName: "Roue droite - Arr\xEAt"
+    isGroup: 0
+    parentIndex: 32
+    spriteID: 599e8213be8201544a505ffbb3e8e0b0
+    layerID: 178
+    mosaicPosition: {x: 4, y: 1387}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Roue droite - Moving 1
+    spriteName: Roue droite - Moving 1
+    isGroup: 0
+    parentIndex: 32
+    spriteID: 31dbd14871c555f4c869c8bb06d7b40d
+    layerID: 199
+    mosaicPosition: {x: 217, y: 1387}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Roue droite - Moving 2
+    spriteName: Roue droite - Moving 2
+    isGroup: 0
+    parentIndex: 32
+    spriteID: 0f534711d9c15564897c1f4ec04c783c
+    layerID: 203
+    mosaicPosition: {x: 466, y: 474}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Corps
+    spriteName: Corps
+    isGroup: 0
+    parentIndex: 17
+    spriteID: a4672ffff72583248885a1c6f2418e75
+    layerID: 57
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Ombre
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2b0cfa6d9d75a9947ba02170571af3e9
+    layerID: 172
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Fond 1
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 231ed47047c3b1b418eff420dfb6f90c
+    layerID: 3
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
