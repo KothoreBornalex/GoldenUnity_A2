@@ -104,6 +104,36 @@ MonoBehaviour:
   OnCollision:
     m_PersistentCalls:
       m_Calls: []
+  OnStartMoving:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3170489650212811175}
+        m_TargetAssemblyTypeName: grandMaMovement, Assembly-CSharp
+        m_MethodName: Anim_StartWalk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStopMoving:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3170489650212811175}
+        m_TargetAssemblyTypeName: grandMaMovement, Assembly-CSharp
+        m_MethodName: Anim_StopWalk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &5065997960333381624
 Rigidbody2D:
   serializedVersion: 4

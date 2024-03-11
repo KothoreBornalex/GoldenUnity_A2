@@ -353,6 +353,29 @@ public class LineRendererMovement : MonoBehaviour
     }
     #endregion
 
+    #region Animations Functions
+    public void Anim_StartWalk()
+    {
+        if (_animator) _animator.SetBool("isWalking", true);
+    }
+
+    public void Anim_StopWalk()
+    {
+        if (_animator) _animator.SetBool("isWalking", false);
+    }
+
+
+    public void Anim_TriggerAttack()
+    {
+        if(_animator) _animator.SetTrigger("isAttacking");
+    }
+
+    public void Anim_ToggleHasStick(bool value)
+    {
+        if (_animator) _animator.SetBool("hasStick", value);
+    }
+
+    #endregion
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
