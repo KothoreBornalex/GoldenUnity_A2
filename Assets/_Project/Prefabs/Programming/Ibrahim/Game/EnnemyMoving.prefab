@@ -80,8 +80,8 @@ MonoBehaviour:
   _speed: 2
   _rightLimit: 0
   _leftLimit: 0
-  _topLimit: 4.9
-  _botomLimit: 3.8
+  _topLimit: 1.5
+  _botomLimit: 2.1
 --- !u!50 &7080738814118330101
 Rigidbody2D:
   serializedVersion: 4
@@ -90,7 +90,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3649910109615037993}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

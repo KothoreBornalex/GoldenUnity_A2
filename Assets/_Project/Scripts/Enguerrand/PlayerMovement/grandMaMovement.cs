@@ -30,7 +30,7 @@ public class grandMaMovement : MonoBehaviour
     [Header("Wall Detection Settings")]
     [SerializeField] LayerMask _wallLayerMask;
     [SerializeField, Range(1, 15)] float _detectionLength;
-    [SerializeField, Range(1, 8)] float _minPerimetre;
+    [SerializeField, Range(0.1f, 8)] float _minPerimetre;
 
     private Vector2 _endSwiping;
     private Vector2 _startSwiping;
@@ -96,9 +96,10 @@ public class grandMaMovement : MonoBehaviour
 
         if (timer < 0.15f) return;
 
-        if(_rb.velocity.magnitude == 0 && _isMoving)
+        if(_rb.velocity.magnitude <= 0.1f && _isMoving)
         {
             _isMoving = false;
+            _rb.velocity = Vector3.zero;
             OnStopMoving?.Invoke();
         }
 
@@ -297,8 +298,15 @@ public class grandMaMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        _isMoving = false;
         OnCollision?.Invoke();
 
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(transform.position, transform.position + transform.up * _minPerimetre);
+
+    }
 }
