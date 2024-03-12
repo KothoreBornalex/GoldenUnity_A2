@@ -5671,6 +5671,18 @@ PrefabInstance:
       propertyPath: OnPlayerSpottedUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8887048284592384309, guid: 93a5cf70fb0097c4f98604a9c5faa2c2, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.225
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887048284592384309, guid: 93a5cf70fb0097c4f98604a9c5faa2c2, type: 3}
+      propertyPath: m_PointLightOuterAngle
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887048284592384309, guid: 93a5cf70fb0097c4f98604a9c5faa2c2, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.84
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
