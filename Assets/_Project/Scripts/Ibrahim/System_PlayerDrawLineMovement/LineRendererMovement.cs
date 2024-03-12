@@ -49,9 +49,8 @@ public class LineRendererMovement : MonoBehaviour
     #region  Start & OnEnable & OnDisable
     private void Start()
     {
-        if(!_animator) _animator = GetComponentInChildren<Animator>();
-
-        if (!_camera) _camera = Camera.main;
+        _animator = GetComponentInChildren<Animator>();
+        _camera = Camera.main;
 
         if(_linePath) InitializedPath();
     }

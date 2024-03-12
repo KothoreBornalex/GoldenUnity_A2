@@ -13,6 +13,7 @@ public class Guard : Objective
     private Animator _animator;
     private GuardGlobalClass _guardGlobalClass;
     private Transform _target;
+    private SpriteRenderer _spriteRenderer;
 
     [SerializeField] UnityEvent OnDeathUnityEvent;
 
@@ -27,7 +28,8 @@ public class Guard : Objective
     
     private void Start()
     {
-        if (_animator) _animator = GetComponentInChildren<Animator>();
+        _animator = GetComponentInChildren<Animator>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         _guardGlobalClass = GetComponent<GuardGlobalClass>();
     }
