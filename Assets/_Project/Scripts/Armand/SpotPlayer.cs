@@ -26,9 +26,8 @@ public class SpotPlayer : MonoBehaviour
         _rotationSpeed = 200;
         _viewCone = GetComponent<Light2D>();
 
-        _viewAngle = _viewCone.pointLightOuterRadius;
-        _viewRadius = _viewCone.pointLightOuterAngle;
-
+        _viewAngle = _viewCone.pointLightOuterAngle;
+        _viewRadius = _viewCone.pointLightOuterRadius;
 
     }
 
