@@ -20,6 +20,16 @@ public class EntityTrigger : MonoBehaviour
         }
     }
 
+    public void ActivateWithoutNotify()
+    {
+        _isActivated = true;
+    }
+
+    public void DesactivateWithoutNotify()
+    {
+        _isActivated = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
