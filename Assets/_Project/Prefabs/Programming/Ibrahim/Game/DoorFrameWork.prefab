@@ -434,7 +434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eedc0c4d09ecec44858cad2cc1ad398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnActivationUnityEvent:
+  _isActivated: 0
+  OnToggleActivated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 361970072562698093}
@@ -448,4 +449,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+  OnToggleDesactivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 361970072562698093}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
