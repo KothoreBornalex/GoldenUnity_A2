@@ -315,6 +315,9 @@ MonoBehaviour:
   _layersToCollideWith:
     serializedVersion: 2
     m_Bits: 755
+  OnPlayerSpottedUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7941796196585930699
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7464607932225533593}
   - component: {fileID: 369468920773380719}
-  - component: {fileID: 8725889206651952836}
+  - component: {fileID: 1058602431213010314}
   m_Layer: 0
   m_Name: CameraTrigger
   m_TagString: Untagged
@@ -426,7 +429,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8725889206651952836
+--- !u!114 &1058602431213010314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -435,11 +438,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8332121381249658208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0d08b6ab2cf9e246819afcfb4c46344, type: 3}
+  m_Script: {fileID: 11500000, guid: 4eedc0c4d09ecec44858cad2cc1ad398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionType: 2
-  OnInteraction:
+  OnActivationUnityEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6982460417815108055}

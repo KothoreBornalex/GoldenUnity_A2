@@ -353,7 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3309525148909012296}
   - component: {fileID: 8870171179137386315}
-  - component: {fileID: 3897464199262669637}
+  - component: {fileID: 1100267609693591303}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -422,7 +422,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3897464199262669637
+--- !u!114 &1100267609693591303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -431,11 +431,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7552847966969783822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0d08b6ab2cf9e246819afcfb4c46344, type: 3}
+  m_Script: {fileID: 11500000, guid: 4eedc0c4d09ecec44858cad2cc1ad398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionType: 2
-  OnInteraction:
+  OnActivationUnityEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 361970072562698093}
