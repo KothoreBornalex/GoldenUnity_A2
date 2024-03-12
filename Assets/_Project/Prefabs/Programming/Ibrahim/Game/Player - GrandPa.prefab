@@ -331,7 +331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc58b58e43d97ee46950c8f668c1fd52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 7936625085721102882}
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -489,8 +488,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 4.05, y: -3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8914628129663805141}
   - {fileID: 5528975906769465941}
@@ -543,6 +542,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnGettingItemUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &9074578275109473072
 MonoBehaviour:
   m_ObjectHideFlags: 0
