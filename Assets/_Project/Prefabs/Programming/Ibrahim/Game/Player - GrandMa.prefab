@@ -96,14 +96,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14184718a38a1674a83aaa65ed334fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 300
+  _speed: 500
   _swipeThreshOld: 2
   _isMoving: 0
   _wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
   _detectionLength: 10
-  _minPerimetre: 2
+  _minPerimetre: 0.55
   OnCollision:
     m_PersistentCalls:
       m_Calls: []
@@ -150,7 +150,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1000
-  m_LinearDrag: 1
+  m_LinearDrag: 0.4
   m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
