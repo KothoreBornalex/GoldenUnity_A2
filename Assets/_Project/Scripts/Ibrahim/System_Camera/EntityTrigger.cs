@@ -6,11 +6,19 @@ using UnityEngine.Events;
 
 public class EntityTrigger : MonoBehaviour
 {
-    private bool _isActivated;
+    [Header("Entity Trigger Fields")]
+    [SerializeField] private bool _isActivated;
     [Header("Unity Events")]
     [SerializeField] private UnityEvent OnToggleActivated;
     [SerializeField] private UnityEvent OnToggleDesactivated;
 
+    private void Start()
+    {
+        if (_isActivated)
+        {
+            OnToggleActivated?.Invoke();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
