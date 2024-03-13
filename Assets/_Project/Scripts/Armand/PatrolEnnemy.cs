@@ -123,11 +123,11 @@ public class PatrolEnnemy : GuardGlobalClass
     {
         if (_directionX == 1f && _directionY == 0f)
         {
-            transform.rotation = new Quaternion(0, 0, 0.7071f, 0.7071f); //new Quaternion(0, 0, 0, 1);
+            transform.rotation = new Quaternion(0, 0, -0.7071f, 0.7071f);  //new Quaternion(0, 0, 0, 1);
         }
         else if (_directionX == -1f && _directionY == 0f)
         {
-            transform.rotation = new Quaternion(0, 0, -0.7071f, 0.7071f); //new Quaternion(0,0,1,0);
+            transform.rotation = new Quaternion(0, 0, 0.7071f, 0.7071f); //new Quaternion(0,0,1,0);
         }
 
         if (_directionY == 1f && _directionX == 0f)
