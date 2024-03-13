@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e1332edbd14ae6140a27f31655791f3b
+guid: 8cf372938d7e6534a8457a3eb5433aa2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1000
+  spritePixelsToUnits: 350
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -108,7 +108,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SP_PORTE_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 118
+        width: 350
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86e59b2ee70bca442b01648b9bbfab71
+      internalID: -1374350555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_PORTE_1
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 118
+        width: 350
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880b83229b9924c48bd3b70cbda16c7d
+      internalID: 408091834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_PORTE_2
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 118
+        width: 350
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b65be1e93eb7f24e93d75887117a765
+      internalID: 1324829462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_PORTE_3
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 118
+        width: 350
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3595613d4942d4586d87a3adf191cf
+      internalID: -148421551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_PORTE_4
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 118
+        width: 350
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cabe1723545f75e46aeb5cd565d9f2e7
+      internalID: -1818233231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +224,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SP_PORTE_0: -1374350555
+      SP_PORTE_1: 408091834
+      SP_PORTE_2: 1324829462
+      SP_PORTE_3: -148421551
+      SP_PORTE_4: -1818233231
+      SP_PORTE_5: -1317983968
+      SP_PORTE_6: 62508814
+      SP_PORTE_7: 273723672
+      SP_PORTE_8: 2080805141
+      SP_PORTE_9: 636322624
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
