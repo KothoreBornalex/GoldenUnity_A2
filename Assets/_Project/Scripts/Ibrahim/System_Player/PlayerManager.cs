@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     private Camera _camera;
     [Header("Player")]
     [SerializeField] private PlayerType _playerType;
+    private bool _hasItem;
 
     [Header("Selection Fields")]
     [SerializeField, Range(0.1f, 2.0f)] private float _selectionCircleRadius = 1.0f;
@@ -27,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     public event Action IsUnSelected;
     [SerializeField] private UnityEvent IsSelectedUnityEvent;
     [SerializeField] private UnityEvent IsUnSelectedUnityEvent;
+    [SerializeField] private UnityEvent OnGettingItemUnityEvent;
 
 
     private Vector3 startInputPos;
@@ -35,6 +37,7 @@ public class PlayerManager : MonoBehaviour
 
     public bool IsPaused { get => _isPaused;}
     public PlayerType PlayerType { get => _playerType;}
+    public bool HasItem { get => _hasItem; set => _hasItem = value; }
 
 
 
@@ -160,6 +163,12 @@ public class PlayerManager : MonoBehaviour
 
         _isSelected = false;
         timeSinceSelected = 0;
+    }
+
+    public void GetItem()
+    {
+        _hasItem = true;
+        OnGettingItemUnityEvent?.Invoke();
     }
 
     private void OnDrawGizmos()

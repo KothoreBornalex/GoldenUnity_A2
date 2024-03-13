@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Objective : MonoBehaviour
 {
+    [Header("Objective Fields")]
     [SerializeField] private bool _isCompleted;
 
     public bool IsCompleted { get => _isCompleted; set => _isCompleted = value; }
@@ -20,4 +22,12 @@ public class Objective : MonoBehaviour
     {
         
     }
+
+
+    protected void Complete()
+    {
+        _isCompleted = true;
+    }
 }
+
+

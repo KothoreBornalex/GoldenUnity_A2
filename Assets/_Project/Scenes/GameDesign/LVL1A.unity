@@ -1416,6 +1416,17 @@ Transform:
   - {fileID: 1284591521}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &747427876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6982460417815108055, guid: 8af95bb9f983658428d657266ac70f8f, type: 3}
+  m_PrefabInstance: {fileID: 1763772771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023bab3d3b04e8943a6037025f22b475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &887031056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,11 +1535,11 @@ PrefabInstance:
     - target: {fileID: 4474056228855146260, guid: d379fe6621c42b440814f562d28b6a87, type: 3}
       propertyPath: _objectives.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1271681275}
     - target: {fileID: 4474056228855146260, guid: d379fe6621c42b440814f562d28b6a87, type: 3}
       propertyPath: _objectives.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 747427876}
     - target: {fileID: 4563722992729508336, guid: d379fe6621c42b440814f562d28b6a87, type: 3}
       propertyPath: m_Name
       value: Manager - Game
@@ -1592,6 +1603,17 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 467159043587772342, guid: d379fe6621c42b440814f562d28b6a87, type: 3}
   m_PrefabInstance: {fileID: 1131604512}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1271681275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3177747069873362725, guid: 93a5cf70fb0097c4f98604a9c5faa2c2, type: 3}
+  m_PrefabInstance: {fileID: 1784098934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ec33704fbf20d4397bd446d1a7f914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1284591520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,8 +1686,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -496031987
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2872,7 +2894,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284591520}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
