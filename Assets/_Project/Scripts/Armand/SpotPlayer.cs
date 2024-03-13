@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
 public class SpotPlayer : MonoBehaviour
 {
+    [Header("Detector Fields")]
+    [SerializeField] private LayerMask _layersToCollideWith;
+
+    [Header("Unity Events Fields")]
+    [SerializeField] private UnityEvent OnPlayerSpottedUnityEvent;
+
     private Light2D _viewCone;
     private float _viewAngle;
     private float _viewRadius;
-    [SerializeField] private LayerMask _layersToCollideWith;
 
     private bool _hasLineOfSight = false;
     private float _rotationAngle;
@@ -20,9 +26,8 @@ public class SpotPlayer : MonoBehaviour
         _rotationSpeed = 200;
         _viewCone = GetComponent<Light2D>();
 
-        _viewAngle = _viewCone.pointLightOuterRadius;
-        _viewRadius = _viewCone.pointLightOuterAngle;
-
+        _viewAngle = _viewCone.pointLightOuterAngle;
+        _viewRadius = _viewCone.pointLightOuterRadius;
 
     }
 

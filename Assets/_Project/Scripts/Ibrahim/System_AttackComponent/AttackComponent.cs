@@ -6,8 +6,10 @@ using UnityEngine.Events;
 
 public class AttackComponent : MonoBehaviour
 {
-    [SerializeField] private CircleCollider2D _collider;
+    
+    private CircleCollider2D _collider;
     [SerializeField] private LayerMask _enemyLayerMask;
+    private PlayerManager _playerManager;
     private GameObject _enemy;
     private bool _enemyDetected;
 
@@ -20,6 +22,9 @@ public class AttackComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _playerManager = GetComponentInParent<PlayerManager>();
+        _collider = GetComponent<CircleCollider2D>();
+
         _collider.includeLayers = _enemyLayerMask;
         _collider.excludeLayers = LayerMask.NameToLayer("Everything");
         _collider.excludeLayers -= _enemyLayerMask;
@@ -29,8 +34,13 @@ public class AttackComponent : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        _enemyDetected = true;
-        _enemy = collision.gameObject;
+        if (_playerManager.HasItem)
+        {
+            _enemyDetected = true;
+            _enemy = collision.gameObject;
+
+            Attack();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

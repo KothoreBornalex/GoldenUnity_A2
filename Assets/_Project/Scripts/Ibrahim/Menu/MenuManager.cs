@@ -12,10 +12,16 @@ public enum PanelsConfiguration
     Credits = 2
 }
 
-
+public enum MenuType
+{
+    PauseMenu,
+    MainMenu
+}
 public class MenuManager : MonoBehaviour
 {
-    public static MenuManager Instance;
+    [SerializeField] private MenuType menuType;
+    public static MenuManager MainMenuManager_Instance;
+    public static MenuManager PauseMenuManager_Instance;
 
     [Header("Canvas Fields")]
     [SerializeField] private Canvas _canvas;
@@ -42,15 +48,32 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        switch (menuType)
         {
-            Instance = this;
+            case MenuType.MainMenu:
+                if (MainMenuManager_Instance == null)
+                {
+                    MainMenuManager_Instance = this;
+                }
+                else
+                {
+                    Destroy(MainMenuManager_Instance);
+                }
+                break;
+
+
+            case MenuType.PauseMenu:
+                if (PauseMenuManager_Instance == null)
+                {
+                    PauseMenuManager_Instance = this;
+                }
+                else
+                {
+                    Destroy(PauseMenuManager_Instance);
+                }
+                break;
         }
-        else
-        {
-            Destroy(Instance);
-            Instance = this;
-        }
+
     }
 
 

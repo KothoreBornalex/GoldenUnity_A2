@@ -14,6 +14,7 @@ public class LineRendererMovement : MonoBehaviour
 
     [Header("Global Fields")]
     private Camera _camera;
+    private Animator _animator;
 
     [Header("Path Fields")]
     [SerializeField, Range(0.1f, 5.0f)] private float _minLengthForValidPath;
@@ -43,11 +44,13 @@ public class LineRendererMovement : MonoBehaviour
     [SerializeField] private UnityEvent OnPathInvalid;
     [SerializeField] private UnityEvent OnPathValid;
     [SerializeField] private UnityEvent OnStartMoving;
+    [SerializeField] private UnityEvent OnStopMoving;
 
     #region  Start & OnEnable & OnDisable
     private void Start()
     {
-        if(!_camera) _camera = Camera.main;
+        _animator = GetComponentInChildren<Animator>();
+        _camera = Camera.main;
 
         if(_linePath) InitializedPath();
     }
@@ -75,7 +78,12 @@ public class LineRendererMovement : MonoBehaviour
     }
     private void _playerManager_IsUnSelected()
     {
+        if(_isDrawing) ClearPath();
+        if(_isReadyToMove) ClearPath();
+
         _canDrawPath = false;
+        _isDrawing = false;
+        DeletePath();
     }
 
 
@@ -182,7 +190,7 @@ public class LineRendererMovement : MonoBehaviour
     private IEnumerator DrawLine()
     {
 
-        while (true)
+        while (_isDrawing)
         {
             Vector3 position = _camera.ScreenToWorldPoint(Input.mousePosition);
             position.z = 0;
@@ -270,6 +278,7 @@ public class LineRendererMovement : MonoBehaviour
         if(_isMoving)
         {
             _isMoving = false;
+            OnStopMoving?.Invoke();
             InverseVertsOrder();
             StartCoroutine(DeletePath());
             
@@ -301,7 +310,6 @@ public class LineRendererMovement : MonoBehaviour
         InverseVertsOrder();
 
         _isMoving = true;
-        // Feedback.
     }
 
     private void UpdateMovements()
@@ -343,10 +351,32 @@ public class LineRendererMovement : MonoBehaviour
 
         //Handling Position
         _rb.MovePosition(transform.position + _normalizedDirection * _movingSpeed * Time.deltaTime);
-        //_rb.AddForce(_normalizedDirection * _movingSpeed, ForceMode2D.Force);
     }
     #endregion
 
+    #region Animations Functions
+    public void Anim_StartWalk()
+    {
+        if (_animator) _animator.SetBool("isWalking", true);
+    }
+
+    public void Anim_StopWalk()
+    {
+        if (_animator) _animator.SetBool("isWalking", false);
+    }
+
+
+    public void Anim_TriggerAttack()
+    {
+        if(_animator) _animator.SetTrigger("isAttacking");
+    }
+
+    public void Anim_ToggleHasStick(bool value)
+    {
+        if (_animator) _animator.SetBool("hasStick", value);
+    }
+
+    #endregion
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -355,6 +385,7 @@ public class LineRendererMovement : MonoBehaviour
         ray.origin = transform.position;
         Gizmos.DrawRay(ray);
     }
+
     private void InverseVertsOrder()
     {
         List<Vector3> verts = new List<Vector3>();
