@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8817135404798523305}
   - component: {fileID: 7080738814118330101}
   - component: {fileID: 4474327299442756844}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: EnnemyMoving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isCompleted: 0
-  _animator: {fileID: 0}
+  OnDeathUnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7115526377005211810}
+        m_TargetAssemblyTypeName: Guard, Assembly-CSharp
+        m_MethodName: Anim_ToggleIsDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8817135404798523305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,8 +80,8 @@ MonoBehaviour:
   _speed: 2
   _rightLimit: 0
   _leftLimit: 0
-  _topLimit: 4.9
-  _botomLimit: 3.8
+  _topLimit: 1.5
+  _botomLimit: 2.1
 --- !u!50 &7080738814118330101
 Rigidbody2D:
   serializedVersion: 4
@@ -76,7 +90,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3649910109615037993}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -140,8 +154,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5193335553562476502}
   - component: {fileID: 4797538219966687028}
+  - component: {fileID: 4069060022366553547}
   m_Layer: 2
-  m_Name: Sprite
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,6 +229,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4069060022366553547
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3857984879011310275}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7393920040957649205
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +335,7 @@ MonoBehaviour:
   m_Intensity: 10
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 3b6eb1327bdbd11e
+  m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -343,4 +379,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layersToCollideWith:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 577
+  OnPlayerSpottedUnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7115526377005211810}
+        m_TargetAssemblyTypeName: Guard, Assembly-CSharp
+        m_MethodName: Anim_TriggerSpotting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

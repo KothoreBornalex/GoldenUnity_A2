@@ -3,33 +3,35 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 using static UnityEngine.GraphicsBuffer;
 
 public class Guard : Objective
 {
     [Header("Guard Fields")]
-    [SerializeField] private Animator _animator;
+    private Animator _animator;
     private GuardGlobalClass _guardGlobalClass;
     private Transform _target;
+    private SpriteRenderer _spriteRenderer;
+
+    [SerializeField] UnityEvent OnDeathUnityEvent;
+
     public void Eliminate()
     {
         Complete();
         _guardGlobalClass.enabled = false;
 
-        if (_animator)
-        {
-            _animator.SetBool("isDead", true);
-            GetComponentInChildren<Light2D>().enabled = false;   
-        }
-
-        else gameObject.SetActive(false);
+        OnDeathUnityEvent?.Invoke();
     }
 
-
+    
     private void Start()
     {
-        _guardGlobalClass = GetComponent<GuardGlobalClass>();  
+        _animator = GetComponentInChildren<Animator>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        _guardGlobalClass = GetComponent<GuardGlobalClass>();
     }
 
     private void Update()
@@ -56,33 +58,30 @@ public class Guard : Objective
 
 
 
+    #region Animations Functions
 
-/*    public IEnumerator RotateTowardEmitter(Transform point)
+    public void Anim_StartWalk()
     {
-        _checkDirection.enabled = false;
+        if (_animator) _animator.SetBool("isWalking", true);
+    }
 
-        float time = 1.0f;
-        bool continueRotation = true;
-        while (continueRotation)
-        {
-            Vector3 direction = point.position - transform.position;
-
-            // Create quaternion rotation to look towards the target
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-            // Smoothly rotate towards the target
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 3.0f * Time.deltaTime);
-            time -= Time.deltaTime;
-            if(time < 0.0f)
-            {
-                continueRotation = false;
-            }
-        }
-
-        yield return null;
+    public void Anim_StopWalk()
+    {
+        if (_animator) _animator.SetBool("isWalking", false);
+    }
 
 
-    }*/
+    public void Anim_TriggerSpotting()
+    {
+        if (_animator) _animator.SetTrigger("isSpotting");
+    }
+
+    public void Anim_ToggleIsDead()
+    {
+        if (_animator) _animator.SetBool("isDead", true);
+    }
+
+    #endregion
 }
 
 

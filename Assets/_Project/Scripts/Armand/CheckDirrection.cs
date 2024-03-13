@@ -11,6 +11,10 @@ public class CheckDirrection : GuardGlobalClass
     [SerializeField] bool _lookDown;
     [SerializeField] float _waitingTime;
     private bool _isIspecting = false;
+
+
+
+
     private void Update()
     {
         if (!_isIspecting)

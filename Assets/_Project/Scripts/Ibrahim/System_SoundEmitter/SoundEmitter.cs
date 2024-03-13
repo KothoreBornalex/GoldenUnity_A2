@@ -9,11 +9,14 @@ public class SoundEmitter : MonoBehaviour
     [SerializeField, Range(0, 5.0f)] private float _radius;
     [SerializeField] private UnityEvent OnSoundEmitterTriggered;
     [SerializeField] private LayerMask _enemyLayerMask;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<PlayerManager>(out PlayerManager playerManager))
         {
-            if(playerManager.PlayerType == PlayerType.GrandMa) PlaySoundEmitter();
+            if (playerManager.PlayerType == PlayerType.GrandMa)
+            {
+                PlaySoundEmitter();
+            }
         }
     }
 

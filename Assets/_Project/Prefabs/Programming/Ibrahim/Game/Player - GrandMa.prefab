@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee5e502199d4e240a4a20f17b798e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerType: 0
-  _selectionCircleRadius: 0.9
+  _playerType: 1
+  _selectionCircleRadius: 0.6
   _debugSelectionCircleRadius: 0
   IsSelectedUnityEvent:
     m_PersistentCalls:
@@ -81,6 +81,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnGettingItemUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3170489650212811175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,17 +96,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14184718a38a1674a83aaa65ed334fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 300
+  _speed: 500
   _swipeThreshOld: 2
   _isMoving: 0
   _wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
   _detectionLength: 10
-  _minPerimetre: 2
+  _minPerimetre: 0.55
   OnCollision:
     m_PersistentCalls:
       m_Calls: []
+  OnStartMoving:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3170489650212811175}
+        m_TargetAssemblyTypeName: grandMaMovement, Assembly-CSharp
+        m_MethodName: Anim_StartWalk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStopMoving:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3170489650212811175}
+        m_TargetAssemblyTypeName: grandMaMovement, Assembly-CSharp
+        m_MethodName: Anim_StopWalk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &5065997960333381624
 Rigidbody2D:
   serializedVersion: 4
@@ -116,9 +149,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 1000
+  m_LinearDrag: 0.4
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -219,6 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6070790721157112296}
   - component: {fileID: 1851813774281337151}
+  - component: {fileID: 4204205527458704296}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -293,6 +327,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4204205527458704296
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329823791837241142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6096969243170988963
 GameObject:
   m_ObjectHideFlags: 0
