@@ -17,9 +17,12 @@ public class grandMaMovement : MonoBehaviour
     private Camera _camera;
     private PlayerManager _playerManager;
     private Rigidbody2D _rb;
+    private Animator _animator;
 
     [Header("Player Settings")]
     [SerializeField, Range(10, 1000)] float _speed;
+    private float _multipliedSpeed;
+
     [SerializeField, Range(1, 40)] float _swipeThreshOld = 20f;
     [SerializeField] bool _isMoving = false;
     private Direction _dir;
@@ -27,7 +30,7 @@ public class grandMaMovement : MonoBehaviour
     [Header("Wall Detection Settings")]
     [SerializeField] LayerMask _wallLayerMask;
     [SerializeField, Range(1, 15)] float _detectionLength;
-    [SerializeField, Range(1, 8)] float _minPerimetre;
+    [SerializeField, Range(0.1f, 8)] float _minPerimetre;
 
     private Vector2 _endSwiping;
     private Vector2 _startSwiping;
@@ -39,14 +42,18 @@ public class grandMaMovement : MonoBehaviour
     private float timer;
     [Header("Unity Events")]
     [SerializeField] private UnityEvent OnCollision;
+    [SerializeField] private UnityEvent OnStartMoving;
+    [SerializeField] private UnityEvent OnStopMoving;
 
-    
 
-
+    #region Initializing Component
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerManager = GetComponent<PlayerManager>();
+        _animator = GetComponentInChildren<Animator>();
+
+        _multipliedSpeed = _speed * _rb.mass;
     }
     private void Start()
     {
@@ -76,7 +83,7 @@ public class grandMaMovement : MonoBehaviour
         _canReceiveInput = false;
     }
 
-
+    #endregion
 
     private void Update()
     {
@@ -88,6 +95,14 @@ public class grandMaMovement : MonoBehaviour
         }
 
         if (timer < 0.15f) return;
+
+        if(_rb.velocity.magnitude <= 0.1f && _isMoving)
+        {
+            _isMoving = false;
+            _rb.velocity = Vector3.zero;
+            OnStopMoving?.Invoke();
+        }
+
 
         if (!_isMoving)
         {
@@ -124,7 +139,7 @@ public class grandMaMovement : MonoBehaviour
     }
 
 
-
+    #region Inputs Functions
     void CheckSwipe()
     {
         /*if (GetSwipePower() > _swipeThreshOld)
@@ -143,7 +158,7 @@ public class grandMaMovement : MonoBehaviour
                 if (!IsUnObstructed(_dir)) return;
 
                 //move upward
-                ApplyMovement(new Vector2(0, _speed * Time.fixedDeltaTime));
+                ApplyMovement(new Vector2(0, _multipliedSpeed * Time.fixedDeltaTime));
                 _isMoving = true;
             }
             else if (_endSwiping.y - _startSwiping.y < 0) //down swipe
@@ -152,7 +167,7 @@ public class grandMaMovement : MonoBehaviour
                 if (!IsUnObstructed(_dir)) return;
 
                 //move downward
-                ApplyMovement(new Vector2(0, -_speed * Time.fixedDeltaTime));
+                ApplyMovement(new Vector2(0, -_multipliedSpeed * Time.fixedDeltaTime));
                 _isMoving = true;
             }
         }
@@ -165,7 +180,7 @@ public class grandMaMovement : MonoBehaviour
                 if (!IsUnObstructed(_dir)) return;
 
                 //move right
-                ApplyMovement(new Vector2(_speed * Time.fixedDeltaTime, 0));
+                ApplyMovement(new Vector2(_multipliedSpeed * Time.fixedDeltaTime, 0));
                 _isMoving = true;
                 
             }
@@ -175,7 +190,7 @@ public class grandMaMovement : MonoBehaviour
                 if (!IsUnObstructed(_dir)) return;
 
                 //move left
-                ApplyMovement(new Vector2(-_speed * Time.fixedDeltaTime, 0));
+                ApplyMovement(new Vector2(-_multipliedSpeed * Time.fixedDeltaTime, 0));
                 _isMoving = true;
                 
             }
@@ -183,8 +198,22 @@ public class grandMaMovement : MonoBehaviour
     }
 
 
+    float verticalSwipe()
+    {
+        return Mathf.Abs(_endSwiping.y - _startSwiping.y);
+    }
+    float horizontalSwipe()
+    {
+        return Mathf.Abs(_endSwiping.x - _startSwiping.x);
+    }
+
+
+    #endregion
+
+    #region Movements Functions
     void ApplyMovement(Vector2 movement)
     {
+        OnStartMoving?.Invoke();
         _rb.AddForce(movement, ForceMode2D.Impulse);
     }
 
@@ -244,21 +273,40 @@ public class grandMaMovement : MonoBehaviour
         }
     }
 
-    float verticalSwipe()
+    #endregion
+
+
+    #region Animations Functions
+
+    public void Anim_StartWalk()
     {
-        return Mathf.Abs(_endSwiping.y - _startSwiping.y);
-    }
-    float horizontalSwipe()
-    {
-        return Mathf.Abs(_endSwiping.x - _startSwiping.x);
+        if (_animator) _animator.SetBool("isWalking", true);
     }
 
+    public void Anim_StopWalk()
+    {
+        if (_animator) _animator.SetBool("isWalking", false);
+    }
+
+
+    public void Anim_TriggerAttack()
+    {
+        if (_animator) _animator.SetTrigger("isAttacking");
+    }
+
+    #endregion
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        OnCollision?.Invoke();
-        _rb.velocity = Vector3.zero;
         _isMoving = false;
+        OnCollision?.Invoke();
+
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(transform.position, transform.position + transform.up * _minPerimetre);
+
+    }
 }

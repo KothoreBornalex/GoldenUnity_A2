@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
-public class CheckDirrection : MonoBehaviour
+public class CheckDirrection : GuardGlobalClass
 {
     [SerializeField] bool _lookRight;
     [SerializeField] bool _lookLeft;
@@ -11,6 +11,10 @@ public class CheckDirrection : MonoBehaviour
     [SerializeField] bool _lookDown;
     [SerializeField] float _waitingTime;
     private bool _isIspecting = false;
+
+
+
+
     private void Update()
     {
         if (!_isIspecting)

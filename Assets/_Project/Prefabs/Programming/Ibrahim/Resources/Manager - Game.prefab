@@ -123,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4474056228855146260}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: TogglePause
+        m_MethodName: ActivatePause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -313,17 +313,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076a3a02439942a4bae6e3090c9f198b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectives: []
-  _canvas: {fileID: 467159043587772342}
+  _objectives:
+  - {fileID: 0}
+  - {fileID: 0}
+  _endGameCanvas: {fileID: 467159043587772342}
+  _pauseButtonCanvas: {fileID: 7699978448946410848}
   _panelVictory: {fileID: 3452105228453192270}
   _panelDefeat: {fileID: 2282172463258843659}
-  _onGameEnd:
+  OnGameEndUnityEvent:
     m_PersistentCalls:
       m_Calls: []
-  _onVictory:
+  OnVictoryUnityEvent:
     m_PersistentCalls:
       m_Calls: []
-  _onDefeat:
+  OnDefeatUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPausedUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnPausedUnityEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &6384635484580657215
