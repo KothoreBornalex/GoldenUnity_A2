@@ -14,6 +14,7 @@ public class Guard : Objective
     private GuardGlobalClass _guardGlobalClass;
     private Transform _target;
     private SpriteRenderer _spriteRenderer;
+    private Rigidbody2D _rb2D;
 
     [SerializeField] UnityEvent OnDeathUnityEvent;
 
@@ -32,6 +33,8 @@ public class Guard : Objective
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         _guardGlobalClass = GetComponent<GuardGlobalClass>();
+
+        _rb2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -53,6 +56,7 @@ public class Guard : Objective
     public void SetTarget(Transform target)
     {
         _guardGlobalClass.enabled = false;
+        _rb2D.velocity = new Vector2(0, 0);
         _target = target;
     }
 
