@@ -356,7 +356,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0f72d44b753ff034cadcfe2de1450921, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
@@ -493,6 +493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SP_CH_Karen_001
       objectReference: {fileID: 0}
+    - target: {fileID: -8090132723911528420, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.3215586
@@ -544,6 +548,30 @@ PrefabInstance:
     - target: {fileID: -7552582706839291426, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4180699089165423401, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2541203657155850999, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 149732844630752010, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 724218381041933558, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544030081945471303, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151084419629582255, guid: fcec8b06e95c68d4aafec5f3decd10f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
