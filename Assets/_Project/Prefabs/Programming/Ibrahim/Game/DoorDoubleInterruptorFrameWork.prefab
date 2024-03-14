@@ -383,7 +383,7 @@ MonoBehaviour:
   - {x: 0.9299998, y: -0.20000005, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -14742
+  m_InstanceId: 70082
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.9299998, y: 0.20000005, z: 0}
@@ -815,6 +815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4595361395671359119}
   - component: {fileID: 4402744583840899446}
+  - component: {fileID: 4595388275095589933}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -889,6 +890,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4595388275095589933
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891543931825664632}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b8052e52e52115a47821e4a075f73e0f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3655857058481016793
 GameObject:
   m_ObjectHideFlags: 0
