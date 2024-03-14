@@ -8,9 +8,17 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.U2D;
 using static UnityEngine.GraphicsBuffer;
 
+
+public enum GuardTypes
+{
+    FixGuard,
+    MovingGuard
+}
+
 public class Guard : Objective
 {
     [Header("Guard Fields")]
+    [SerializeField] private GuardTypes _guardType;
     private Animator _animator;
     private GuardGlobalClass _guardGlobalClass;
 
@@ -52,10 +60,23 @@ public class Guard : Objective
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        Quaternion targetRotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 3.0f * Time.deltaTime);
-        
 
+        Quaternion targetRotation = Quaternion.identity;
+
+        switch (_guardType)
+        {
+            case GuardTypes.FixGuard:
+                targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                break;
+
+            case GuardTypes.MovingGuard:
+                targetRotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+                break;
+        }
+
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 3.0f * Time.deltaTime);
+       
     }
 
     void FadeOut()
