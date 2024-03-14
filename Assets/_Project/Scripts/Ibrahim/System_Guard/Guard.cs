@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.U2D;
 using static UnityEngine.GraphicsBuffer;
 
 public class Guard : Objective
@@ -14,11 +15,11 @@ public class Guard : Objective
     private GuardGlobalClass _guardGlobalClass;
 
     private Transform _target;
-    private SpriteRenderer _spriteRenderer;
+    private SpriteRenderer[] _spriteRenderer;
     private Rigidbody2D _rb2D;
     private SpotPlayer _spotPlayer;
 
-    [SerializeField, Range(0f,4f)]float _waitforSecond;
+    [SerializeField, Range(0f,6f)]float _waitforSecond = 4.0f;
     bool _isDead;
     [SerializeField] UnityEvent OnDeathUnityEvent;
 
@@ -34,7 +35,7 @@ public class Guard : Objective
     private void Start()
     {
         _animator = GetComponentInChildren<Animator>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
 
         _guardGlobalClass = GetComponent<GuardGlobalClass>();
         _spotPlayer = GetComponentInChildren<SpotPlayer>();
@@ -61,8 +62,12 @@ public class Guard : Objective
     {
         if (!_isDead) return;
         
-        _spriteRenderer.color = Vector4.Lerp(_spriteRenderer.color, new Vector4(0, 0, 0, 0), Time.deltaTime);
-        _waitforSecond+= Time.deltaTime;
+        foreach(SpriteRenderer sprite in _spriteRenderer)
+        {
+            sprite.color = Vector4.Lerp(sprite.color, new Vector4(0, 0, 0, 0), Time.deltaTime);
+        }
+
+        _waitforSecond += Time.deltaTime;
 
         if (_waitforSecond > 4f)
         {
