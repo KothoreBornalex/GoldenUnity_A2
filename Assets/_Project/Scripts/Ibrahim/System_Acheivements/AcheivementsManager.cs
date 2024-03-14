@@ -23,9 +23,7 @@ public class AcheivementsManager : MonoBehaviour
 
     public void UnlockSuccess(string successID)
     {
-        Social.ReportProgress(successID, 100.0f, (bool success) => {
-            // handle success or failure
-        });
+        PlayGamesPlatform.Instance.UnlockAchievement(successID);
     }
 
 }
