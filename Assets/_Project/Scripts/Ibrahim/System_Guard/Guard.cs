@@ -12,17 +12,21 @@ public class Guard : Objective
     [Header("Guard Fields")]
     private Animator _animator;
     private GuardGlobalClass _guardGlobalClass;
+
     private Transform _target;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb2D;
+    private SpotPlayer _spotPlayer;
 
+    float _waitforSecond;
+    bool _isDead;
     [SerializeField] UnityEvent OnDeathUnityEvent;
 
     public void Eliminate()
     {
         Complete();
         _guardGlobalClass.enabled = false;
-
+        _isDead = true;
         OnDeathUnityEvent?.Invoke();
     }
 
@@ -33,12 +37,14 @@ public class Guard : Objective
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         _guardGlobalClass = GetComponent<GuardGlobalClass>();
-
+        _spotPlayer = GetComponentInChildren<SpotPlayer>();
         _rb2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
+        FadeOut();
+
         if (_target == null) return;
 
         Vector2 direction = _target.position - transform.position;
@@ -48,9 +54,21 @@ public class Guard : Objective
         Quaternion targetRotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 3.0f * Time.deltaTime);
         
+
     }
 
+    void FadeOut()
+    {
+        if (!_isDead) return;
+        
+        _spriteRenderer.color = Vector4.Lerp(_spriteRenderer.color, new Vector4(0, 0, 0, 0), Time.deltaTime);
+        _waitforSecond+= Time.deltaTime;
 
+        if (_waitforSecond > 4f)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 
     public void SetTarget(Transform target)
