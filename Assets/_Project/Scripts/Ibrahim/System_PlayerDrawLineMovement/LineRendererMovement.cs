@@ -124,6 +124,9 @@ public class LineRendererMovement : MonoBehaviour
 
         if(_isMoving)
         {
+            
+            SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandpaMove);
+            
             if (_linePath.positionCount != 0)
             {
                 UpdateMovements();
