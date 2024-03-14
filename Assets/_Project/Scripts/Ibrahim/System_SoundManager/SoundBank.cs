@@ -46,7 +46,9 @@ public class SoundBank : ScriptableObject
     [SerializeField] public Sound _cancelPath;
     [SerializeField] public Sound _grandpaHit;
     [SerializeField] public Sound _stepOnChicken;
-    [SerializeField] public Sound _playerStop;
+    [SerializeField] public Sound _playerSpoted;
+    [SerializeField] public Sound _selectGrandpa;
+    [SerializeField] public Sound _selectGrandma;
 
 
 }
