@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 8112777497303686530}
   - component: {fileID: 9074578275109473072}
   - component: {fileID: 7869012899862258723}
-  - component: {fileID: 7182891588240932761}
+  - component: {fileID: -1559546777615307133}
   m_Layer: 9
   m_Name: Player - GrandPa
   m_TagString: Untagged
@@ -638,8 +638,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &7182891588240932761
-CircleCollider2D:
+--- !u!70 &-1559546777615307133
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -670,9 +670,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.17062953
+  m_Offset: {x: -0.3, y: 0}
+  m_Size: {x: 1, y: 0.5}
+  m_Direction: 1
 --- !u!1 &9208532422045459766
 GameObject:
   m_ObjectHideFlags: 0
