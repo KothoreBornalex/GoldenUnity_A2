@@ -18,7 +18,7 @@ public class Guard : Objective
     private Rigidbody2D _rb2D;
     private SpotPlayer _spotPlayer;
 
-    float _waitforSecond;
+    [SerializeField, Range(0f,4f)]float _waitforSecond;
     bool _isDead;
     [SerializeField] UnityEvent OnDeathUnityEvent;
 
