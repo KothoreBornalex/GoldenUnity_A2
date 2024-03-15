@@ -22,7 +22,7 @@ public class SoundEmitter : MonoBehaviour
 
     public void PlaySoundEmitter()
     {
-        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._stepOnChicken);
+        
         GetEnemiesAttention();
         OnSoundEmitterTriggered?.Invoke();
     }
@@ -44,6 +44,19 @@ public class SoundEmitter : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, _radius);
     }
+
+    #region Sound Design Functions
+    public void LaunchPouetSound(float timer)
+    {
+        StartCoroutine(PlayPouetSound(timer));
+    }
+    public IEnumerator PlayPouetSound(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._stepOnChicken);
+    }
+    #endregion
 }
 
 

@@ -68,8 +68,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4840848226462413157}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: PlaySelectGrandma
-        m_Mode: 1
+        m_MethodName: LaunchSelectedGrandmaSound
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -126,6 +126,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: grandMaMovement, Assembly-CSharp
         m_MethodName: Anim_StartWalk
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3170489650212811175}
+        m_TargetAssemblyTypeName: grandMaMovement, Assembly-CSharp
+        m_MethodName: LaunchStartMovingSound
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

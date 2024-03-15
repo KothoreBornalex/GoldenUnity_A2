@@ -51,13 +51,28 @@ public class EntityTrigger : MonoBehaviour
         }
     }
 
-    public void PlayCamerasound()
+    #region Sound Design Functions
+    public void LaunchDoorOpenCloseSound(float timer)
     {
-        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._cameraOnOff);
+        StartCoroutine(PlayDoorOpenCloseSound(timer));
     }
-    public void PlayDoorSound()
+    public IEnumerator PlayDoorOpenCloseSound(float timer)
     {
+        yield return new WaitForSeconds(timer);
+
         SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._doorOpenClose);
     }
+    
+    public void LaunchCameraOnOffSound(float timer)
+    {
+        StartCoroutine(PlayCameraOnOffSound(timer));
+    }
+    public IEnumerator PlayCameraOnOffSound(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._cameraOnOff);
+    }
+    #endregion
 
 }

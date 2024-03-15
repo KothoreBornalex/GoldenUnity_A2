@@ -125,7 +125,7 @@ public class LineRendererMovement : MonoBehaviour
         if(_isMoving)
         {
             
-            SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandpaMove);
+            //SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandpaMove);
             
             if (_linePath.positionCount != 0)
             {
@@ -426,4 +426,28 @@ public class LineRendererMovement : MonoBehaviour
             yield return null;
         }
     }
+
+    #region Sound Design Functions
+    public void LaunchMoveGrandpaSound(float timer)
+    {
+        StartCoroutine(PlayMoveGrandpaSound(timer));
+    }
+    public IEnumerator PlayMoveGrandpaSound(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandpaMove);
+    }
+    
+    public void LaunchClearPathSound(float timer)
+    {
+        StartCoroutine(PlayClearPathSound(timer));
+    }
+    public IEnumerator PlayClearPathSound(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._cancelPath);
+    }
+    #endregion
 }

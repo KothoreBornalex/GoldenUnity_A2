@@ -178,13 +178,28 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    public void PlaySelectGrandma()
+    #region Sound Design Functions
+    public void LaunchSelectedGrandmaSound(float timer)
     {
+        StartCoroutine(PlaySelectedGrandmaSound(timer));
+    }
+    public IEnumerator PlaySelectedGrandmaSound(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
         SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._selectGrandma);
     }
-
-    public void PlaySelectGrandPa()
+    
+    public void LaunchSelectedGrandpaSound(float timer)
     {
+        StartCoroutine(PlaySelectedGrandpaSound(timer));
+    }
+    public IEnumerator PlaySelectedGrandpaSound(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
         SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._selectGrandpa);
     }
+    #endregion
+
 }

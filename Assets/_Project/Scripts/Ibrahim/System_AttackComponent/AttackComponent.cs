@@ -52,11 +52,23 @@ public class AttackComponent : MonoBehaviour
 
     public void Attack()
     {
-        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandpaHit);
         OnAttackingUnityEvent?.Invoke();
 
         _enemy.GetComponent<Guard>().Eliminate();
 
         OnFinishedAttackUnityEvent?.Invoke();
     }
+
+    #region Sound Design Functions
+    public void LaunchHitSound(float timer)
+    {
+        StartCoroutine(PlayHitSound(timer));
+    }
+    public IEnumerator PlayHitSound(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandpaHit);
+    }
+    #endregion
 }

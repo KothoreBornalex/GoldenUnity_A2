@@ -49,17 +49,17 @@ MonoBehaviour:
     _spammable: 1
   _grandpaMove:
     _name: GrandpaMove
-    _clip: {fileID: 8300000, guid: ed8f9b96eaf353c4c9d93d57922b44f4, type: 3}
+    _clip: {fileID: 8300000, guid: 9a5191fd0f485b548bbe8229be7a82da, type: 3}
     _type: 0
-    _spammable: 1
+    _spammable: 0
   _cancelPath:
     _name: CancelPath
     _clip: {fileID: 8300000, guid: a383d21b79432534ebd9a8574f80d015, type: 3}
     _type: 0
     _spammable: 1
   _grandpaHit:
-    _name: 
-    _clip: {fileID: 0}
+    _name: GrandpaHit
+    _clip: {fileID: 8300000, guid: 6a00bafe25d88ba4580ba7b60f674c9e, type: 3}
     _type: 0
     _spammable: 1
   _stepOnChicken:
