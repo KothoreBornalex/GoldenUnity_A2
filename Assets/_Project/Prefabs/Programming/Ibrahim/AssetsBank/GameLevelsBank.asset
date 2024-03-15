@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenu:
     _levelID: 0
-    _sceneName: MainMenu
+    _sceneName: CurrentMainMenu
     _illustration: {fileID: 0}
   _pauseMenu:
     _levelID: -1
     _sceneName: PauseMenu
+    _illustration: {fileID: 0}
+  _bonusLevel:
+    _levelID: 0
+    _sceneName: LVL BONUS
     _illustration: {fileID: 0}
   _gameLevels:
   - _levelID: 1
@@ -52,5 +56,5 @@ MonoBehaviour:
     _sceneName: LVL10
     _illustration: {fileID: 21300000, guid: a219f625fda23de4b9b93a91f9e5eedd, type: 3}
   - _levelID: 2
-    _sceneName: Level1
+    _sceneName: LVL10
     _illustration: {fileID: 21300000, guid: a219f625fda23de4b9b93a91f9e5eedd, type: 3}

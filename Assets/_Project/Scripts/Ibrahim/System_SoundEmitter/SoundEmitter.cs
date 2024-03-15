@@ -22,8 +22,7 @@ public class SoundEmitter : MonoBehaviour
 
     public void PlaySoundEmitter()
     {
-        AcheivementsManager.instance.UnlockSuccess(GameAssets.instance.AchievementsBank.AmogUs_ID);
-        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._soundEmitter);
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._stepOnChicken);
         GetEnemiesAttention();
         OnSoundEmitterTriggered?.Invoke();
     }

@@ -60,4 +60,13 @@ public class EntityTrigger : MonoBehaviour
         }
     }
 
+    public void PlayCamerasound()
+    {
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._cameraOnOff);
+    }
+    public void PlayDoorSound()
+    {
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._doorOpenClose);
+    }
+
 }

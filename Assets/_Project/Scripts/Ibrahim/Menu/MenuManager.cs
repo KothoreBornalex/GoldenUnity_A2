@@ -9,7 +9,8 @@ public enum PanelsConfiguration
 {
     LevelsSelection = 0,
     Settings = 1,
-    Credits = 2
+    Credits = 2,
+    PanelsSelection = 3
 }
 
 public enum MenuType
@@ -153,6 +154,11 @@ public class MenuManager : MonoBehaviour
                 _levelSelectionPanel.SetActive(false);
                 _settingsPanel.SetActive(false);
                 break;
+            case PanelsConfiguration.PanelsSelection:
+                _creditsPanel.SetActive(false);
+                _levelSelectionPanel.SetActive(false);
+                _settingsPanel.SetActive(false);
+                break;
         }
 
         PlayButtonSound();
@@ -183,6 +189,10 @@ public class MenuManager : MonoBehaviour
         //SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._levelOneMusic);
     }
 
+    public void GoToBonusLevel()
+    {
+        LoadingManager.instance.LoadSceneWithLoadingScreen(GameAssets.instance.GameLevelsBank.BonusLevel.SceneName, true, LoadingManager.instance.CurrentScene);
+    }
 
     public void InitializeLevelsSelection()
     {

@@ -106,7 +106,9 @@ public class grandMaMovement : MonoBehaviour
 
         if (!_isMoving)
         {
-
+            
+            SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandmaRoll);
+            
             foreach (Touch touch in Input.touches)
             {
                 //Detects Touch Start on the screen

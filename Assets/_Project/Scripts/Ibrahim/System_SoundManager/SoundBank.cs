@@ -39,6 +39,17 @@ public class SoundBank : ScriptableObject
 
     [Header("Game Sounds")]
     [SerializeField] public Sound _soundEmitter;
+    [SerializeField] public Sound _doorOpenClose;
+    [SerializeField] public Sound _cameraOnOff;
+    [SerializeField] public Sound _grandmaRoll;
+    [SerializeField] public Sound _grandpaMove;
+    [SerializeField] public Sound _cancelPath;
+    [SerializeField] public Sound _grandpaHit;
+    [SerializeField] public Sound _stepOnChicken;
+    [SerializeField] public Sound _playerSpoted;
+    [SerializeField] public Sound _selectGrandpa;
+    [SerializeField] public Sound _selectGrandma;
+
 
 }
 

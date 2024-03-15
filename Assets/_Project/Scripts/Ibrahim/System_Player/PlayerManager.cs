@@ -177,4 +177,14 @@ public class PlayerManager : MonoBehaviour
         if(_debugSelectionCircleRadius) Gizmos.DrawSphere(transform.position, _selectionCircleRadius);
 
     }
+
+    public void PlaySelectGrandma()
+    {
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._selectGrandma);
+    }
+
+    public void PlaySelectGrandPa()
+    {
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._selectGrandpa);
+    }
 }

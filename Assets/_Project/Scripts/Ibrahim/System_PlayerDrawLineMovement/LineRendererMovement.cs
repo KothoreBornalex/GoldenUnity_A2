@@ -124,6 +124,9 @@ public class LineRendererMovement : MonoBehaviour
 
         if(_isMoving)
         {
+            
+            SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandpaMove);
+            
             if (_linePath.positionCount != 0)
             {
                 UpdateMovements();
@@ -399,6 +402,7 @@ public class LineRendererMovement : MonoBehaviour
 
     private IEnumerator DeletePath()
     {
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._cancelPath);
         int deletedVert = 0;
         float currentTimer = 0;
         float timing = 1.0f / (_resetPathSpeed * 10.0f);
