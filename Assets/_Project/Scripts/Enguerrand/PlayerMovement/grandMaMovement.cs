@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 public class grandMaMovement : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class grandMaMovement : MonoBehaviour
     private Vector2 _startSwiping;
     private bool _canReceiveInput;
     private bool _detectSwipeOnlyAfterRelease = false;
-
+    private Quaternion _targetRotation;
 
 
     private float timer;
@@ -87,7 +88,11 @@ public class grandMaMovement : MonoBehaviour
 
     private void Update()
     {
+
         if (_playerManager.IsPaused) return;
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, 3.0f * Time.deltaTime);
+
         if (!_canReceiveInput) return;
         else
         {
@@ -159,8 +164,11 @@ public class grandMaMovement : MonoBehaviour
                 _dir = Direction.up;
                 if (!IsUnObstructed(_dir)) return;
 
+                Vector2 input = new Vector2(0, _multipliedSpeed * Time.fixedDeltaTime);
                 //move upward
-                ApplyMovement(new Vector2(0, _multipliedSpeed * Time.fixedDeltaTime));
+                ApplyMovement(input);
+                //rotating toward
+                SetRotation(input);
                 _isMoving = true;
             }
             else if (_endSwiping.y - _startSwiping.y < 0) //down swipe
@@ -168,8 +176,11 @@ public class grandMaMovement : MonoBehaviour
                 _dir = Direction.down;
                 if (!IsUnObstructed(_dir)) return;
 
+                Vector2 input = new Vector2(0, -_multipliedSpeed * Time.fixedDeltaTime);
                 //move downward
-                ApplyMovement(new Vector2(0, -_multipliedSpeed * Time.fixedDeltaTime));
+                ApplyMovement(input);
+                //rotating toward
+                SetRotation(input);
                 _isMoving = true;
             }
         }
@@ -181,8 +192,12 @@ public class grandMaMovement : MonoBehaviour
                 _dir = Direction.right;
                 if (!IsUnObstructed(_dir)) return;
 
+                Vector2 input = new Vector2(_multipliedSpeed * Time.fixedDeltaTime, 0);
                 //move right
-                ApplyMovement(new Vector2(_multipliedSpeed * Time.fixedDeltaTime, 0));
+                ApplyMovement(input);
+                //rotating toward
+                SetRotation(input);
+
                 _isMoving = true;
                 
             }
@@ -191,8 +206,11 @@ public class grandMaMovement : MonoBehaviour
                 _dir = Direction.left;
                 if (!IsUnObstructed(_dir)) return;
 
+                Vector2 input = new Vector2(-_multipliedSpeed * Time.fixedDeltaTime, 0);
                 //move left
-                ApplyMovement(new Vector2(-_multipliedSpeed * Time.fixedDeltaTime, 0));
+                ApplyMovement(input);
+                //rotating toward
+                SetRotation(input);
                 _isMoving = true;
                 
             }
@@ -273,6 +291,19 @@ public class grandMaMovement : MonoBehaviour
         {
             return true;
         }
+    }
+
+
+    private void SetRotation(Vector2 input)
+    {
+        Vector2 myPosition = new Vector2(transform.position.x, transform.position.y);
+        Vector2 targetPosition = myPosition + input;
+        Vector2 direction = targetPosition - myPosition;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+
+        _targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     #endregion
