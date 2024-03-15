@@ -33,6 +33,7 @@ public class Guard : Objective
 
     public void Eliminate()
     {
+        GameManager.Instance.UnlockSuccess(AchievementsBank.Success.DeathForGD);
         Complete();
         _guardGlobalClass.enabled = false;
         _isDead = true;
