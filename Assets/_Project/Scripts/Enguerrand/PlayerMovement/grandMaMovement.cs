@@ -96,7 +96,7 @@ public class grandMaMovement : MonoBehaviour
 
         if (timer < 0.15f) return;
 
-        if(_rb.velocity.magnitude <= 0.1f && _isMoving)
+        if (_rb.velocity.magnitude <= 0.1f && _isMoving)
         {
             _isMoving = false;
             _rb.velocity = Vector3.zero;
@@ -106,9 +106,8 @@ public class grandMaMovement : MonoBehaviour
 
         if (!_isMoving)
         {
-            
-            SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandmaRoll);
-            
+
+
             foreach (Touch touch in Input.touches)
             {
                 //Detects Touch Start on the screen
@@ -184,7 +183,7 @@ public class grandMaMovement : MonoBehaviour
                 //move right
                 ApplyMovement(new Vector2(_multipliedSpeed * Time.fixedDeltaTime, 0));
                 _isMoving = true;
-                
+
             }
             else if (_endSwiping.x - _startSwiping.x < 0)//Left swipe
             {
@@ -194,7 +193,7 @@ public class grandMaMovement : MonoBehaviour
                 //move left
                 ApplyMovement(new Vector2(-_multipliedSpeed * Time.fixedDeltaTime, 0));
                 _isMoving = true;
-                
+
             }
         }
     }
@@ -311,4 +310,17 @@ public class grandMaMovement : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + transform.up * _minPerimetre);
 
     }
+
+    #region Sound Design Functions
+    public void LaunchStartMovingSound(float timer)
+    {
+        StartCoroutine(PlayStartMovingSound(timer));
+    }
+    public IEnumerator PlayStartMovingSound(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandmaRoll);
+    }
+    #endregion
 }
