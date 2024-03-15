@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuMusic:
     _name: MainMenuMusic
-    _clip: {fileID: 8300000, guid: 534c416e2bc2aae48a529de36a4b9df2, type: 3}
+    _clip: {fileID: 8300000, guid: 835eff3b184c8304c9587149a3df72e9, type: 3}
     _type: 1
     _spammable: 0
-  _levelOneMusic:
-    _name: LevelOneMusic
-    _clip: {fileID: 8300000, guid: 98a8f265ed816614ebd2083ef4ebd58a, type: 3}
+  _inGameMusic:
+    _name: InGameMusic
+    _clip: {fileID: 8300000, guid: 0f2e476bfa43b7445bd80464305d4e5e, type: 3}
     _type: 1
     _spammable: 0
   _buttonFocus:
@@ -46,12 +46,12 @@ MonoBehaviour:
     _name: GrandmaRoll
     _clip: {fileID: 8300000, guid: 778af603be268fb4a97a6803e23b6073, type: 3}
     _type: 0
-    _spammable: 1
+    _spammable: 0
   _grandpaMove:
     _name: GrandpaMove
     _clip: {fileID: 8300000, guid: ed8f9b96eaf353c4c9d93d57922b44f4, type: 3}
     _type: 0
-    _spammable: 1
+    _spammable: 0
   _cancelPath:
     _name: CancelPath
     _clip: {fileID: 8300000, guid: a383d21b79432534ebd9a8574f80d015, type: 3}

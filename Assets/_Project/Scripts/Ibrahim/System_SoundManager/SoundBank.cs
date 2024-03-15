@@ -31,7 +31,7 @@ public class SoundBank : ScriptableObject
 {
     [Header("Musics")]
     [SerializeField] public Sound _mainMenuMusic;
-    [SerializeField] public Sound _levelOneMusic;
+    [SerializeField] public Sound _inGameMusic;
 
 
     [Header("UI Sounds")]

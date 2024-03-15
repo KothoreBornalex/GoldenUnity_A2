@@ -112,7 +112,6 @@ public class grandMaMovement : MonoBehaviour
         if (!_isMoving)
         {
             
-            SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandmaRoll);
             
             foreach (Touch touch in Input.touches)
             {
@@ -234,6 +233,7 @@ public class grandMaMovement : MonoBehaviour
     void ApplyMovement(Vector2 movement)
     {
         OnStartMoving?.Invoke();
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._grandmaRoll);
         _rb.AddForce(movement, ForceMode2D.Impulse);
     }
 

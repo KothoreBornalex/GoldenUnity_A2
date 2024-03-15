@@ -24,8 +24,9 @@ public class MenuManager : MonoBehaviour
     public static MenuManager MainMenuManager_Instance;
     public static MenuManager PauseMenuManager_Instance;
 
-    [Header("Canvas Fields")]
+    [Header("Global Fields")]
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private bool _playMenuMusic;
 
     [Header("Menu Panels")]
     [SerializeField] private GameObject _menu;
@@ -85,6 +86,8 @@ public class MenuManager : MonoBehaviour
 
         GetComponent<Canvas>().worldCamera = Camera.main;
         InitializeLevelsSelection();
+
+        if(_playMenuMusic) SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._mainMenuMusic);
 
         //LevelManager.instance.LoadSceneWithLoadingScreen(LevelManager.instance.LevelOneScene, true, LevelManager.instance.MainMenuScene);
     }
@@ -211,6 +214,10 @@ public class MenuManager : MonoBehaviour
                     StartLevel(gameLevel.SceneName);
                 }));
 
+                levelSelectionUI.PlayButton.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
+                {
+                    PlayMusic();
+                }));
             }
         }
     }
@@ -218,6 +225,11 @@ public class MenuManager : MonoBehaviour
     public void LeaveTheGame()
     {
         Application.Quit();
+    }
+
+    public void PlayMusic()
+    {
+        SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._inGameMusic);
     }
 
     #endregion

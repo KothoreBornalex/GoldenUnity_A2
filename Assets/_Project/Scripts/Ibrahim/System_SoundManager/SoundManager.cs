@@ -56,7 +56,7 @@ public class SoundManager : MonoBehaviour
 
     private static IEnumerator PlayMusic(Sound sound)
     {
-        GameObject soundGameObject = new GameObject("Music");
+        GameObject soundGameObject = new GameObject("Music" + sound.Name);
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.clip = sound.Clip;
         audioSource.loop = true;
@@ -65,6 +65,7 @@ public class SoundManager : MonoBehaviour
 
         if (_currentMusic)
         {
+            Debug.Log("I was here");
             _nextMusic.volume = 0;
             bool currentMusicDone = false;
             bool nextMusicDone = false;
@@ -72,13 +73,14 @@ public class SoundManager : MonoBehaviour
             while (!currentMusicDone || !nextMusicDone)
             {
                 
-                _currentMusic.volume = Mathf.Lerp(_currentMusic.volume, 0, Time.deltaTime * 0.45f);
-                _nextMusic.volume = Mathf.Lerp(_nextMusic.volume, _musicVolume, Time.deltaTime * 0.3f);
+                _currentMusic.volume = Mathf.MoveTowards(_currentMusic.volume, 0, Time.deltaTime * 0.45f);
+                _nextMusic.volume = Mathf.MoveTowards(_nextMusic.volume, _musicVolume, Time.deltaTime * 0.3f);
                 
                 if(_currentMusic.volume == 0 && _nextMusic.volume == _musicVolume)
                 {
                     currentMusicDone = true;
                     nextMusicDone = true;
+                    _currentMusic.gameObject.SetActive(false);
                     _currentMusic = _nextMusic;
                 }
 

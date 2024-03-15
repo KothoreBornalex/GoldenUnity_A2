@@ -14,7 +14,7 @@ public class InitializationManager : MonoBehaviour
         {
             LoadingManager.instance.LoadSceneWithoutLoadingScreen(GameAssets.instance.GameLevelsBank.MainMenu.SceneName);
 
-            SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._mainMenuMusic);
+            //SoundManager.Instance.PlaySound(GameAssets.instance.SoundBank._mainMenuMusic);
         }
         
     }
