@@ -301,6 +301,12 @@ public class grandMaMovement : MonoBehaviour
         _isMoving = false;
         OnCollision?.Invoke();
 
+
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            GameManager.Instance.UnlockSuccess(AchievementsBank.Success.Love);
+        }
+
     }
 
     private void OnDrawGizmos()

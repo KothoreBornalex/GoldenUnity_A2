@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using static AchievementsBank;
 
 public class GameManager : MonoBehaviour
 {
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+    
 
     public void EndGame(bool victory)
     {
@@ -173,6 +175,45 @@ public class GameManager : MonoBehaviour
 
         return true;
     }
+
+
+
+
+    public void UnlockNotThatBad()
+    {
+        UnlockSuccess(Success.NotThatBad);
+    }
+
+    public void UnlockAmongUs()
+    {
+        UnlockSuccess(Success.AmongUs);
+    }
+
+    #region Success Functions
+    public void UnlockSuccess(Success success)
+    {
+        switch (success)
+        {
+            case Success.Love:
+                AcheivementsManager.instance.UnlockSuccess(GameAssets.instance.AchievementsBank.Love_ID);
+                break;
+            case Success.OneLastTime:
+                AcheivementsManager.instance.UnlockSuccess(GameAssets.instance.AchievementsBank.OneLastTime_ID);
+                break;
+            case Success.AmongUs:
+                AcheivementsManager.instance.UnlockSuccess(GameAssets.instance.AchievementsBank.AmogUs_ID);
+                break;
+            case Success.DeathForGD:
+                AcheivementsManager.instance.UnlockSuccess(GameAssets.instance.AchievementsBank.DeathForTheGameDesign_ID);
+                break;
+            case Success.NotThatBad:
+                AcheivementsManager.instance.UnlockSuccess(GameAssets.instance.AchievementsBank.NotThatBad_ID);
+                break;
+        }
+    }
+    #endregion
+
+
 }
 
 

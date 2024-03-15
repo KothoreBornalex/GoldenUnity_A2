@@ -8,6 +8,7 @@ public class EntityTrigger : MonoBehaviour
 {
     [Header("Entity Trigger Fields")]
     [SerializeField] private bool _isActivated;
+    private int _switchCount;
     [Header("Unity Events")]
     [SerializeField] private UnityEvent OnToggleActivated;
     [SerializeField] private UnityEvent OnToggleDesactivated;
@@ -40,12 +41,20 @@ public class EntityTrigger : MonoBehaviour
                 if (_isActivated)
                 {
                     _isActivated = false;
+                    _switchCount++;
                     OnToggleDesactivated?.Invoke();
                 }
                 else
                 {
                     _isActivated = true;
+                    _switchCount++;
                     OnToggleActivated?.Invoke();
+                }
+
+
+                if(_switchCount >= 10)
+                {
+                    GameManager.Instance.UnlockSuccess(AchievementsBank.Success.OneLastTime);
                 }
             }
         }

@@ -22,7 +22,7 @@ public class Guard : Objective
     {
         Complete();
         _guardGlobalClass.enabled = false;
-
+        GameManager.Instance.UnlockSuccess(AchievementsBank.Success.DeathForGD);
         OnDeathUnityEvent?.Invoke();
     }
 

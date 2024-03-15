@@ -2,9 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 [CreateAssetMenu(fileName = "AchievementsBank", menuName = "AchievementsBank", order = 1)]
 public class AchievementsBank : ScriptableObject
 {
+    public enum Success
+    {
+        AmongUs,
+        DeathForGD,
+        Love,
+        NotThatBad,
+        OneLastTime
+    }
+
     [SerializeField] private string _amogUs_ID;
     [SerializeField] private string _deathForTheGameDesign_ID;
     [SerializeField] private string _love_ID;
