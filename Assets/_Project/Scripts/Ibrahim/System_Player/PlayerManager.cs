@@ -17,6 +17,12 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private PlayerType _playerType;
     private bool _hasItem;
 
+    [Header("FeedBack Fields")]
+    [SerializeField, Range(0, 5)] private float _boucingBigPower;
+    [SerializeField, Range(0, 5)] private float _bouncingBigSpeed;
+    [SerializeField, Range(0, 5)] private float _boucingSmallPower;
+    [SerializeField, Range(0, 5)] private float _bouncingSmallSpeed;
+
     [Header("Selection Fields")]
     [SerializeField, Range(0.1f, 2.0f)] private float _selectionCircleRadius = 1.0f;
     [SerializeField] private bool _debugSelectionCircleRadius;
@@ -152,7 +158,7 @@ public class PlayerManager : MonoBehaviour
         IsSelectedUnityEvent?.Invoke();
 
         _isSelected = true;
-
+        StartCoroutine(FeedBackManager.instance.BouncingBig(transform, _boucingBigPower, _bouncingBigSpeed));
     }
 
     private void SetUnSelected()
@@ -163,6 +169,8 @@ public class PlayerManager : MonoBehaviour
 
         _isSelected = false;
         timeSinceSelected = 0;
+
+        //StartCoroutine(FeedBackManager.instance.BouncingSmall(transform, _boucingSmallPower, _bouncingSmallSpeed));
     }
 
     public void GetItem()
@@ -175,7 +183,6 @@ public class PlayerManager : MonoBehaviour
     {
         Gizmos.color = Color.green;
         if(_debugSelectionCircleRadius) Gizmos.DrawSphere(transform.position, _selectionCircleRadius);
-
     }
 
     public void PlaySelectGrandma()

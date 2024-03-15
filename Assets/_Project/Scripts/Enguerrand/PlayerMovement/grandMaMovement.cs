@@ -26,6 +26,9 @@ public class grandMaMovement : MonoBehaviour
 
     [SerializeField, Range(1, 40)] float _swipeThreshOld = 20f;
     [SerializeField] bool _isMoving = false;
+    [SerializeField] private bool _canRotate;
+    [SerializeField] private Transform _transformToRotate;
+
     private Direction _dir;
 
     [Header("Wall Detection Settings")]
@@ -91,7 +94,7 @@ public class grandMaMovement : MonoBehaviour
 
         if (_playerManager.IsPaused) return;
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, 3.0f * Time.deltaTime);
+        _transformToRotate.rotation = Quaternion.Slerp(_transformToRotate.rotation, _targetRotation, 3.0f * Time.deltaTime);
 
         if (!_canReceiveInput) return;
         else
@@ -167,7 +170,7 @@ public class grandMaMovement : MonoBehaviour
                 //move upward
                 ApplyMovement(input);
                 //rotating toward
-                SetRotation(input);
+                if(_canRotate) SetRotation(input);
                 _isMoving = true;
             }
             else if (_endSwiping.y - _startSwiping.y < 0) //down swipe
@@ -179,7 +182,7 @@ public class grandMaMovement : MonoBehaviour
                 //move downward
                 ApplyMovement(input);
                 //rotating toward
-                SetRotation(input);
+                if (_canRotate) SetRotation(input);
                 _isMoving = true;
             }
         }
@@ -195,7 +198,7 @@ public class grandMaMovement : MonoBehaviour
                 //move right
                 ApplyMovement(input);
                 //rotating toward
-                SetRotation(input);
+                if (_canRotate) SetRotation(input);
 
                 _isMoving = true;
                 
@@ -209,7 +212,7 @@ public class grandMaMovement : MonoBehaviour
                 //move left
                 ApplyMovement(input);
                 //rotating toward
-                SetRotation(input);
+                if (_canRotate) SetRotation(input);
                 _isMoving = true;
                 
             }
@@ -296,7 +299,7 @@ public class grandMaMovement : MonoBehaviour
 
     private void SetRotation(Vector2 input)
     {
-        Vector2 myPosition = new Vector2(transform.position.x, transform.position.y);
+        Vector2 myPosition = new Vector2(_transformToRotate.position.x, _transformToRotate.position.y);
         Vector2 targetPosition = myPosition + input;
         Vector2 direction = targetPosition - myPosition;
 
