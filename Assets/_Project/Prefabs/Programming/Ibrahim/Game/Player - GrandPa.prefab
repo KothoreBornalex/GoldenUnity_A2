@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 5528975906769465941}
   - component: {fileID: 7936625085721102882}
   - component: {fileID: 4579738970938859690}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackComponent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,10 +472,10 @@ GameObject:
   - component: {fileID: 8112777497303686530}
   - component: {fileID: 9074578275109473072}
   - component: {fileID: 7869012899862258723}
-  - component: {fileID: 7182891588240932761}
+  - component: {fileID: 6566172988920782569}
   m_Layer: 9
   m_Name: Player - GrandPa
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -650,7 +650,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &7182891588240932761
+--- !u!58 &6566172988920782569
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -682,9 +682,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.3, y: 0.04}
   serializedVersion: 2
-  m_Radius: 0.17062953
+  m_Radius: 0.3
 --- !u!1 &9208532422045459766
 GameObject:
   m_ObjectHideFlags: 0

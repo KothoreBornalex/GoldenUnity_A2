@@ -8,9 +8,11 @@ public class GameLevelsBank : ScriptableObject
 {
     [SerializeField] private GameLevel _mainMenu;
     [SerializeField] private GameLevel _pauseMenu;
+    [SerializeField] private GameLevel _bonusLevel;
 
     [SerializeField] private List<GameLevel> _gameLevels;
     public List<GameLevel> GameLevels { get => _gameLevels;}
     public GameLevel MainMenu { get => _mainMenu;}
     public GameLevel PauseMenu { get => _pauseMenu;}
+    public GameLevel BonusLevel { get => _bonusLevel;}
 }
