@@ -7,7 +7,7 @@ public class AchievementsOnStartn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AcheivementsManager.instance.UnlockSuccess(GameAssets.instance.AchievementsBank.AmogUs_ID);
+        GameManager.Instance.UnlockSuccess(AchievementsBank.Success.AmongUs);
     }
 
 
